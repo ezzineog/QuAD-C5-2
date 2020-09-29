@@ -1,0 +1,73 @@
+/* navbar for the filed */
+.bar{
+  background-color: black;
+  height: 4.4vw;
+}
+
+.loginBar{
+  float: right;
+  position: relative;
+  left:55vw
+}
+
+.Fbtn{
+  display:inline;
+}
+
+.navbar {
+  display: inline;
+  color: white;
+}
+
+#submitLog {
+  padding: 5px 10px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+  left: 0vw;
+  top:1.2vw;
+}
+
+#submitLog:hover {
+  background-color: royalblue;
+}
+
+#logo {
+  color: white;
+  font-size: 20px;
+}
+
+
+/* navbar for the userfiled */
+
+.userNavbar {
+  background-color: black;
+  padding: 18px;
+  text-decoration-line: none;
+}
+
+.Ulink {
+  text-decoration-line: none;
+  color: white;
+}
+
+.buttons {
+  float: right;
+  text-decoration-line: none;
+}
+
+.Ubtn {
+  display: inline;
+  margin: 50px;
+}
+
+/* applications side */
+
+.posts{
+  border: 0px solid;
+  padding: 10px;
+  box-shadow: -1px 2px 20px -5px #888888;
+  width:50vw;
+  border-radius:10px;
+}
