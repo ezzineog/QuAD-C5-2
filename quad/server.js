@@ -9,8 +9,9 @@ const db = require('../database-mysql');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+express.use(express.static('public'))
 // SIGNING UP 
-app.post('/signup', async(req, res)  => {
+app.post('/signup', async (req, res)  => {
     try {
         const data = await db.createUser(req.body);
         res.send(data);
@@ -21,7 +22,7 @@ app.post('/signup', async(req, res)  => {
 });
 
 // Getting All the Signed In Users
-app.get('/signup', async(req, res) => {
+app.get('/signup', async (req, res) => {
     try{
         const allData = await db.Users();
         res.status(200).send(allData);
