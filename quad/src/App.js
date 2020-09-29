@@ -1,13 +1,17 @@
-import React from 'react';
-import './App.css';
-// import FreelancerSection from './freelancer/FreelancerSection';
+import React from "react";
+import "./App.css";
+// import browser router.
+// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// import other components.
+// eslint-disable-next-line
+import { Navbar } from "./components/Navbar.js";
+import { UserNavBar } from "./UserNavBar.js";
+// import { }
+// import bootstrap.
+import "bootstrap/dist/css/bootstrap.css";
 
-function App() {
-  return (
-    <div className="App">
-     {/* <FreelancerSection/> */} test
-    </div>
-  );
-}
+const App = () => {
+  return <Navbar />;
+};
 
 export default App;

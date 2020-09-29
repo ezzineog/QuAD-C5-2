@@ -57,38 +57,48 @@ export class Navbar extends React.Component {
 
   render() {
     return (
-        <Form className="login">
+      <Form>
+        <div className="bar">
           <ul className="navbar">
             <FormGroup className="inputs">
-              <li id="logo" className="btn">QuAD</li>
-              <li className="btn">
-                <Input
-                  className="input"
-                  required
-                  onChange={this.handleChange}
-                  id="userName"
-                  type="text"
-                  placeholder="Enter user name"
-                />
+              <li id="logo" className="btn">
+                QuAD
               </li>
-              <li className="btn">
-                <Input
-                  className="input"
-                  required
-                  onChange={this.handleChange}
-                  id="password"
-                  type="password"
-                  placeholder="Enter password"
-                />
-              </li>
+              <div className="loginBar">
+                <li className="btn">
+                  <Input
+                    className="input"
+                    required
+                    onChange={this.handleChange}
+                    id="userName"
+                    type="email"
+                    placeholder="Enter email"
+                  />
+                </li>
+                <li className="btn">
+                  <Input
+                    className="input"
+                    required
+                    onChange={this.handleChange}
+                    id="password"
+                    type="password"
+                    placeholder="Enter password"
+                  />
+                </li>
+                <li className="btn">
+                  <Button
+                    onClick={this.handleSubmit}
+                    id="submitLog"
+                    type="submit"
+                  >
+                    Log in
+                  </Button>
+                </li>
+              </div>
             </FormGroup>
-            <li className="btn">
-              <Button onClick={this.handleSubmit} id="submitLog" type="submit">
-                Log in
-              </Button>
-            </li>
           </ul>
-        </Form>
+        </div>
+      </Form>
     );
   }
 }
