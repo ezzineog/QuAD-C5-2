@@ -1,13 +1,25 @@
-import React from 'react';
-import './App.css';
-// import FreelancerSection from './freelancer/FreelancerSection';
+import React from "react";
+import "./App.css";
+import axios from 'axios'
+// import browser router.
+// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// import other components.
+// eslint-disable-next-line
+import { Navbar } from "./components/Navbar.js";
+import Signup from "./components/Signup.js";
 
-function App() {
+// import { UserNavBar } from "./UserNavBar.js";
+// import { }
+// import bootstrap.
+import "bootstrap/dist/css/bootstrap.css";
+
+const App = () => {
   return (
-    <div className="App">
-     {/* <FreelancerSection/> */} test
-    </div>
+    <div>
+  <Navbar />
+  <Signup/>
+  </div>
   );
-}
+};
 
 export default App;
