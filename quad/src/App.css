@@ -71,3 +71,19 @@
   width:50vw;
   border-radius:10px;
 }
+
+.feed{
+  position : relative;
+  left : 35vw
+}
+
+.feedCard{
+  margin-top: 7%;
+}
+
+#detailsBtn{
+  width: 17%;
+  position: relative;
+  align-self: center;
+
+}
