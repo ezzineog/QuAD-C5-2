@@ -6,13 +6,20 @@ import axios from 'axios'
 // import other components.
 // eslint-disable-next-line
 import { Navbar } from "./components/Navbar.js";
+import Signup from "./components/Signup.js";
+
 // import { UserNavBar } from "./UserNavBar.js";
 // import { }
 // import bootstrap.
 import "bootstrap/dist/css/bootstrap.css";
 
 const App = () => {
-  return <Navbar />;
+  return (
+    <div>
+  <Navbar />
+  <Signup/>
+  </div>
+  );
 };
 
 export default App;
