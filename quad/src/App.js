@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import FreelancerSection from './freelancer/FreelancerSection';
+// import FreelancerSection from './freelancer/FreelancerSection';
 
 function App() {
   return (
     <div className="App">
-     <FreelancerSection/>
+     {/* <FreelancerSection/> */} test
     </div>
   );
 }
