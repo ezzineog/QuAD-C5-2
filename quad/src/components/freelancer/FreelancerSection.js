@@ -5,9 +5,10 @@ export default class FreelancerSection extends Component {
     constructor(props){
         super(props);
         this.state = {
-            user : {},
-            jobs : [{name: 'Ahmed Corp'}, {name:'numbers corp'}, {name : 'jdey corp'}],
-            applications : []
+            user : {}, //we get it from the login action
+            userDescription : {}, //we get it from the login action
+            jobs : [{name: 'Ahmed Corp'}, {name:'numbers corp'}, {name : 'jdey corp'}], // get request to the jobOffers table
+            applications : [] // get request to the join table
         }
     }
 
