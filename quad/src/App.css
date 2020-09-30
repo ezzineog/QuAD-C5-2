@@ -1,17 +1,17 @@
 /* navbar for the filed */
-.bar{
+.bar {
   background-color: black;
   height: 4.4vw;
 }
 
-.loginBar{
+.loginBar {
   float: right;
   position: relative;
-  left:55vw
+  left: 55vw;
 }
 
-.Fbtn{
-  display:inline;
+.Fbtn {
+  display: inline;
 }
 
 .navbar {
@@ -26,7 +26,7 @@
   color: white;
   cursor: pointer;
   left: 0vw;
-  top:1.2vw;
+  top: 1.2vw;
 }
 
 #submitLog:hover {
@@ -37,7 +37,6 @@
   color: white;
   font-size: 20px;
 }
-
 
 /* navbar for the userfiled */
 
@@ -64,62 +63,74 @@
 
 /* applications side */
 
-.posts{
+.posts {
   border: 0px solid;
   padding: 10px;
   box-shadow: -1px 2px 20px -5px #888888;
-  width:50vw;
-  border-radius:10px;
+  width: 50vw;
+  border-radius: 10px;
 }
 
-.feed{
-  position : relative;
-  left : 35vw;
+.feed {
+  position: relative;
+  width: 100%;
 }
 
-.feedCard{
-  margin-top: 7%;
+.feedCard {
+  width: 100%;
+  left: 35vw;
+  top: -64.5%;
+  /* margin-top: -200%; */
 }
 
-#detailsBtn{
+#detailsBtn {
   float: right;
   width: 17%;
-  margin:0 1%;
+  margin: 0 1%;
 }
 
-.filter{
+.filter {
   position: relative;
   align-self: center;
 }
 
-.signup{
-  width:25%;
+.signup {
+  width: 25%;
   float: right;
   position: relative;
   right: 10%;
-  margin-top:5%;
+  margin-top: 5%;
   border: 1px solid;
-  border-radius:5%;
+  border-radius: 5%;
   padding: 30px;
   text-align: center;
 }
 
-.buttonChange{
- margin-right: 5%;
- margin-top: 5%;
- margin-bottom: 5%;
- position: relative;
- left: 2%;
+.buttonChange {
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  position: relative;
+  left: 2%;
 }
 
-#logotext{
+#logotext {
   font-size: 20px;
 }
 
-.submit-button{
+.submit-button {
   background-color: dodgerblue;
 }
 
-.form-group{
-  
+.checkbox {
+  width: 100%;
+  left: 1vw;
+  top: 5vw;
+}
+
+#buttonskills {
+  float: right;
+}
+.checkboxDiv {
+  width: 25%;
 }

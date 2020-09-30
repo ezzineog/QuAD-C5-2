@@ -26,18 +26,24 @@ class FreelancerSign extends React.Component {
   getSign() {
     
     let body = {
-      FirstName: this.state.firstName,
-      LastName: this.state.lastName,
-      Email: this.state.email,
-      Password: this.state.password
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      password: this.state.password
     };
-    // if (body.password !== this.state.Cpassword) {
-      // alert("check your password again !");
-    // }else{
-     axios.post('http://127.0.0.1:3008/signup', body)
+    if (this.state.password !== this.state.Cpassword) {
+      alert("check your password again !");
+
+    }
+    else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)){
+      alert("wrong email !");
+    }else{
+  axios.post('http://127.0.0.1:3008/signup', body)
       .then(response => console.log('[client side SignUp]',response.data))
       .catch(error  => console.log(error));
-    // }
+
+    }
+
   }
 
   render() {

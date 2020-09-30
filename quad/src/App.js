@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-// import axios from 'axios'
-// import FreelancerSection from "./components/freelancer/FreelancerSection";
+
+
 // import browser router.
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import other components.
@@ -19,8 +19,9 @@ const App = () => {
   return (
     <div>
   <Navbar />
+
   <Signup/>
-  {/* <FreelancerSection/> */}
+
   </div>
   );
 };
