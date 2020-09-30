@@ -74,7 +74,7 @@
 
 .feed{
   position : relative;
-  left : 35vw
+  left : 35vw;
 }
 
 .feedCard{
@@ -82,9 +82,9 @@
 }
 
 #detailsBtn{
+  float: right;
   width: 17%;
-  position: relative;
-  align-self: center;
+  margin:0 1%;
 }
 
 .filter{
@@ -103,6 +103,7 @@
   padding: 30px;
   text-align: center;
 }
+
 .buttonChange{
  margin-right: 5%;
  margin-top: 5%;
@@ -110,9 +111,15 @@
  position: relative;
  left: 2%;
 }
+
 #logotext{
   font-size: 20px;
 }
+
 .submit-button{
   background-color: dodgerblue;
+}
+
+.form-group{
+  
 }
