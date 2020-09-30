@@ -47,7 +47,6 @@ module.exports = {
     Users,addUsers,
     UsersDescription,addUsersDescription
   };
-  
   // const updateUsersDescription = function(user) {
 //     return new Promise((resolve, reject) => {
 //         connection.query('UPDATE describe ----------------')
