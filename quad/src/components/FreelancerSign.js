@@ -1,15 +1,15 @@
 import React from "react";
 import axios from "axios";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-
+import { Form,  Input, Button } from "reactstrap";
+// FormGroup, Label,
 class FreelancerSign extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
+      FirstName: "",
+      LastName: "",
+      Email: "",
+      Password: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.getSign = this.getSign.bind(this);
@@ -21,54 +21,51 @@ class FreelancerSign extends React.Component {
   }
 
   async getSign() {
+    console.log('Clicked !')
     let body = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      password: this.state.password,
-    };
-    axios
-      .post("", body)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      FirstName: this.state.FirstName,
+      LastName: this.state.LastName,
+      Email: this.state.Email,
+      Password: this.state.Password,
+    }
+    axios.post('/signup', body)
+      .then(res => console.log('saved successfully'))
+      .catch(err => console.log('[client side] error',err))
   }
 
   render() {
-    return (<Form>
+    return (
+    <Form>
       <div>
         <Input
           type="text"
-          name="firstName"
+          name="FirstName"
           placeholder="First Name"
           onChange={this.handleChange}
         />
         <br />
         <Input
           type="text"
-          name="lastName"
+          name="LastName"
           placeholder="Last Name"
           onChange={this.handleChange}
         />
         <br />
         <Input
-          type="email"
-          name="email"
+          type="Email"
+          name="Email"
           placeholder="Email"
           onChange={this.handleChange}
         />
         <br />
         <Input
-          type="password"
-          name="password"
+          type="Password"
+          name="Password"
           placeholder="Password"
           onChange={this.handleChange}
         />
         <br />
-        <Button>Submit</Button>
+        <Button onClick={this.getSign}>Submit</Button>
       </div>
       </Form>
     );
