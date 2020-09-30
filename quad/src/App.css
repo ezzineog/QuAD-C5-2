@@ -85,5 +85,9 @@
   width: 17%;
   position: relative;
   align-self: center;
+}
 
+.filter{
+  position: relative;
+  align-self: center;
 }
