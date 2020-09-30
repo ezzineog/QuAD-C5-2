@@ -22,7 +22,6 @@ app.post('/signup', async (req, res)  => {
         res.send(e);
     }
 });
-
 // Getting All the Signed In Users
 app.get('/signup', async (req, res) => {
     try{
@@ -33,9 +32,11 @@ app.get('/signup', async (req, res) => {
         console.error(err);
     }
 })
+
 // =================================================================
 // setting up profile
-  // add  Description 
+
+  // add  Description
 app.post('/profile', async (req, res)  => {
     console.log('req.body ====>',req.body);
     try {
@@ -47,7 +48,7 @@ app.post('/profile', async (req, res)  => {
     }
 });
 
-// Getting All the SignedIn Users Description
+  // Getting All the SignedIn Users Description
 app.get('/profile', async (req, res) => {
     try{
         const profileAllData = await db.UsersDescription();

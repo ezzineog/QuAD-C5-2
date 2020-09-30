@@ -5,7 +5,7 @@ const connection = mysql.createConnection(mysqlConfig);
 // ==========================================================================
 const Users = function() {
     return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM signup', (err ,data) => {
+        connection.query('SELECT * FROM users', (err ,data) => {
             if(err) { reject(err)}
             resolve(data)
         });
@@ -15,7 +15,7 @@ const Users = function() {
 const addUsers = function(user) {
     console.log('users =======>',user)
     return new Promise((resolve, reject) => {
-        connection.query(`INSERT INTO signup (FirstName, LastName, Email, Password) VALUES (${user.FirstName}','${user.LastName}','${user.Email}','${user.Password}')`, (err ,data) => {
+        connection.query(`INSERT INTO users (FirstName, LastName, Email, Password) VALUES ('${user.FirstName}','${user.LastName}','${user.Email}','${user.Password}')`, (err ,data) => {
             if(err) { reject(err)}
             resolve(data)
         });
@@ -26,7 +26,7 @@ const addUsers = function(user) {
 
 const UsersDescription = function() {
     return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM describe', (err ,data) => {
+        connection.query('SELECT * FROM UserDescription', (err ,data) => {
             if(err) { reject(err)}
             resolve(data)
         });
@@ -36,13 +36,12 @@ const UsersDescription = function() {
 const addUsersDescription = function(user) {
     console.log('users =======>',user)
     return new Promise((resolve, reject) => {
-        connection.query(`INSERT INTO describe (Age, Avatar, Description, PhoneNumber, Skills) VALUES (${user.Age},'${user.Avatar}','${user.Description}','${user.PhoneNumber}','${user.Skills}')`, (err ,data) => {
+        connection.query(`INSERT INTO UserDescription (Age, Avatar, Description, PhoneNumber, Skills) VALUES (${user.Age},'${user.Avatar}','${user.Description}','${user.PhoneNumber}','${user.Skills}')`, (err ,data) => {
             if(err) { reject(err)}
             resolve(data)
         });
     });
 };
-
 
 module.exports = {
     Users,addUsers,
