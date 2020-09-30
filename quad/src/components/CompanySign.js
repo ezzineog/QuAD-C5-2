@@ -25,9 +25,8 @@ class CompanySign extends React.Component {
       CompanyName: this.state.CompanyName,
       Email: this.state.Email,
       Password: this.state.Password,
-      Cpassword: this.state.Cpassword
     };
-    if (body.Password !== body.Cpassword) {
+    if (body.Password !== this.state.Cpassword) {
       alert("check your password again !")
     }else{
     axios

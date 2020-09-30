@@ -1,6 +1,6 @@
 import React from "react";
 import CompanySign from "./CompanySign.js";
-import { Button } from "reactstrap";
+import { Button, Label } from "reactstrap";
 import FreelancerSign from "./FreelancerSign.js";
 //  Form, FormGroup, Label, Input,
 class Signup extends React.Component {
@@ -29,7 +29,7 @@ class Signup extends React.Component {
     return (
       <div className="signup">
         <Label id="logotext"> You don't have an account? Create one </Label>
-
+        <br />
         <Button
           outline
           color="primary"
