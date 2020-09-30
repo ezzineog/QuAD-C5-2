@@ -9,7 +9,8 @@ class FreelancerSign extends React.Component {
       FirstName: "",
       LastName: "",
       Email: "",
-      Password: ""
+      Password: "",
+      Cpassword: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.getSign = this.getSign.bind(this);
@@ -29,9 +30,8 @@ class FreelancerSign extends React.Component {
       lastName: this.state.lastName,
       email: this.state.email,
       password: this.state.password,
-      Cpassword: this.state.Cpassword
     };
-    if (body.password !== body.Cpassword) {
+    if (body.password !== this.state.Cpassword) {
       alert("check your password again !");
     }else{
     axios
