@@ -52,7 +52,7 @@ export class Aplications extends React.Component {
               bulk of the card's content.
             </CardText>
           </CardBody>
-          <img
+          <CardImg
             width="100%"
             src="https://reactstrap.github.io/assets/318x180.svg"
             alt="company image"
