@@ -87,6 +87,12 @@
   align-self: center;
 
 }
+
+.filter{
+  position: relative;
+  align-self: center;
+}
+
 .signup{
   width:25%;
   float: right;
