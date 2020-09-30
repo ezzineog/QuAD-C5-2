@@ -24,19 +24,19 @@ class CompanySign extends React.Component {
     let body = {
       CompanyName: this.state.CompanyName,
       Email: this.state.Email,
-      Password: this.state.Password,
+      Password: this.state.Password
     };
-    if (body.Password !== this.state.Cpassword) {
-      alert("check your password again !")
-    }else{
-    axios
-      .post("", body)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    if (this.state.Password !== this.state.Cpassword) {
+      alert("check your password again !");
+    } else {
+      axios
+        .post("", body)
+        .then(function (response) {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   }
 

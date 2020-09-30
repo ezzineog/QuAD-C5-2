@@ -29,19 +29,19 @@ class FreelancerSign extends React.Component {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
-      password: this.state.password,
+      password: this.state.password
     };
-    if (body.password !== this.state.Cpassword) {
+    if (this.state.password !== this.state.Cpassword) {
       alert("check your password again !");
-    }else{
-    axios
-      .post("", body)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
+    } else {
+      axios
+        .post("", body)
+        .then(function (response) {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   }
 
