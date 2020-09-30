@@ -1,16 +1,15 @@
 import React from "react";
 import axios from "axios";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-
+import { Form,  Input, Button } from "reactstrap";
+// FormGroup, Label,
 class FreelancerSign extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      Cpassword: "",
+      FirstName: "",
+      LastName: "",
+      Email: "",
+      Password: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.getSign = this.getSign.bind(this);
@@ -20,6 +19,8 @@ class FreelancerSign extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
     // console.log("=====>",event.target.value)
   }
+
+
 
   getSign() {
     
@@ -40,7 +41,7 @@ class FreelancerSign extends React.Component {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      })
     }
   }
 
@@ -86,8 +87,10 @@ class FreelancerSign extends React.Component {
           <Button color="primary" type="submit" onClick={this.getSign}>
             Submit
           </Button>
+      
         </FormGroup>
       </Form>
+      
     );
   }
 }

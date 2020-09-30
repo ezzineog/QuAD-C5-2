@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-
+import { Form,  Input, Button } from "reactstrap";
+// FormGroup, Label,
 class CompanySign extends React.Component {
   constructor(props) {
     super(props);
