@@ -33,7 +33,7 @@ export class Navbar extends React.Component {
       alert("please enter user name and password")
     }else{
     axios
-      .post("/users/info", user)
+      .post("http://localhost:3008/users/info", user)
       .then((response) => {
         console.log(response.data);
       })
