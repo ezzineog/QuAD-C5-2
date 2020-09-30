@@ -27,9 +27,25 @@ class Signup extends React.Component {
       compo = <CompanySign />;
     }
     return (
-      <div>
-        <Button onClick={this.handelFreelancerSign}>Freelancer</Button>
-        <Button onClick={this.handelCompanySign}>Company</Button>
+      <div className="signup">
+        <Label id="logotext"> You don't have an account? Create one </Label>
+
+        <Button
+          outline
+          color="primary"
+          className="buttonChange"
+          onClick={this.handelFreelancerSign}
+        >
+          Freelancer
+        </Button>
+        <Button
+          outline
+          color="primary"
+          className="buttonChange"
+          onClick={this.handelCompanySign}
+        >
+          Company
+        </Button>
         {compo}
       </div>
     );
