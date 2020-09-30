@@ -6,17 +6,18 @@ export default class FreelancerSection extends Component {
         super(props);
         this.state = {
             user : {},
-            jobs : [{name: 'Ahmed Corp'}, {name:'numbers corp'}, {name : 'jdey corp'}],
+            jobs : [{name: 'Ahmed Corp'}, {name:'numbers corp'}, {name : 'Eljday corp'}],
             applications : []
         }
     }
 
-    componentDidMount(){
-        // axios.get('/freelancer')
-        // .then(res => this.setState({
-        // //    bring all the jobs and the jobs for which the user applied
-        // }))
-    }
+    // componentDidMount(){
+    //     axios.get('/freelancer')
+    //     .then(res => this.setState({
+    //     //    bring all the jobs and the jobs for which the user applied
+    //     }))
+    // }
+
     render() {
         return (
             <div>

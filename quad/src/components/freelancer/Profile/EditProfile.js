@@ -13,6 +13,8 @@ class EditProfile extends React.Component {
 
   render() {
     return <div>
+        <Label for="avatar">Avatar</Label>
+        <Input type="file" name="avatar" accept="image/*"/>
         <Label for="firstName">First Name:</Label>
         <Input type="text" name="firstName" /><br/>
         <Label for="lastName">Last Name:</Label>
@@ -26,9 +28,9 @@ class EditProfile extends React.Component {
         <Label for="technicalSkills">Technical Skills:</Label><br/>
         <Input type="text" name="technicalSkills" /><br/>
         <Label for="additionalSkills">Additional Skills:</Label><br/>
-        <Input type="text" name="additionalSkills" placeholder="Describe yourself.."/><br/>
+        <Input type="text" name="additionalSkills" /><br/>
         <Label for="experience">Experience</Label><br/>
-        <Input type="text" name="experience" placeholder="Describe yourself.."/><br/>
+        <Input type="text" name="experience" /><br/>
         <Button onClick={this.handelProfile}>Cancel</Button>
         <Button onClick={this.handelProfile}>Save</Button>
     </div>;
