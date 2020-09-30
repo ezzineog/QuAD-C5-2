@@ -1,8 +1,8 @@
 import React from "react";
 import CompanySign from "./CompanySign.js";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Button, Label } from "reactstrap";
 import FreelancerSign from "./FreelancerSign.js";
-
+//  Form, FormGroup, Label, Input,
 class Signup extends React.Component {
   constructor(props) {
     super(props);
