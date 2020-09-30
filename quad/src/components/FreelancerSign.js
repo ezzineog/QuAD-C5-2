@@ -9,7 +9,7 @@ class FreelancerSign extends React.Component {
       FirstName: "",
       LastName: "",
       Email: "",
-      Password: "",
+      Password: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.getSign = this.getSign.bind(this);
@@ -20,54 +20,77 @@ class FreelancerSign extends React.Component {
     // console.log("=====>",event.target.value)
   }
 
-  async getSign() {
-    console.log('Clicked !')
+
+
+  getSign() {
+    
     let body = {
-      FirstName: this.state.FirstName,
-      LastName: this.state.LastName,
-      Email: this.state.Email,
-      Password: this.state.Password,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      password: this.state.password,
+      Cpassword: this.state.Cpassword
+    };
+    if (body.password !== body.Cpassword) {
+      alert("check your password again !");
+    }else{
+    axios
+      .post("", body)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
     }
-    axios.post('/signup', body)
-      .then(res => console.log('saved successfully'))
-      .catch(err => console.log('[client side] error',err))
   }
 
   render() {
     return (
-    <Form>
-      <div>
-        <Input
-          type="text"
-          name="FirstName"
-          placeholder="First Name"
-          onChange={this.handleChange}
-        />
-        <br />
-        <Input
-          type="text"
-          name="LastName"
-          placeholder="Last Name"
-          onChange={this.handleChange}
-        />
-        <br />
-        <Input
-          type="Email"
-          name="Email"
-          placeholder="Email"
-          onChange={this.handleChange}
-        />
-        <br />
-        <Input
-          type="Password"
-          name="Password"
-          placeholder="Password"
-          onChange={this.handleChange}
-        />
-        <br />
-        <Button onClick={this.getSign}>Submit</Button>
-      </div>
+      <Form>
+        <FormGroup>
+          <Input
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            onChange={this.handleChange}
+          />
+          <br />
+          <Input
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            onChange={this.handleChange}
+          />
+          <br />
+          <Input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={this.handleChange}
+          />
+          <br />
+          <Input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={this.handleChange}
+          />
+          <br />
+          <Input
+            type="password"
+            name="Cpassword"
+            placeholder="Confirm password"
+            onChange={this.handleChange}
+          />
+          <br />
+          <Button color="primary" type="submit" onClick={this.getSign}>
+            Submit
+          </Button>
+      
+        </FormGroup>
       </Form>
+      
     );
   }
 }

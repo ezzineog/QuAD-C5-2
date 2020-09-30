@@ -9,6 +9,7 @@ class CompanySign extends React.Component {
       CompanyName: "",
       Email: "",
       Password: "",
+      Cpassword: ""
     };
     this.getSign = this.getSign.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -24,7 +25,11 @@ class CompanySign extends React.Component {
       CompanyName: this.state.CompanyName,
       Email: this.state.Email,
       Password: this.state.Password,
+      Cpassword: this.state.Cpassword
     };
+    if (body.Password !== body.Cpassword) {
+      alert("check your password again !")
+    }else{
     axios
       .post("", body)
       .then(function (response) {
@@ -33,35 +38,43 @@ class CompanySign extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+    }
   }
 
   render() {
     return (
       <Form>
-      <div>
-        <Input
-          name="CompanyName"
-          type="text"
-          placeholder="Company Name"
-          onChange={this.handleChange}
-        />
-        <br />
-        <Input
-          name="Email"
-          type="email"
-          placeholder="Email"
-          onChange={this.handleChange}
-        />
-        <br />
-        <Input
-          name="Password"
-          type="password"
-          placeholder="Password"
-          onChange={this.handleChange}
-        />
-        <br />
-        <Button>Submit</Button>
-      </div>
+        <div>
+          <Input
+            name="CompanyName"
+            type="text"
+            placeholder="Company Name"
+            onChange={this.handleChange}
+          />
+          <br />
+          <Input
+            name="Email"
+            type="email"
+            placeholder="Email"
+            onChange={this.handleChange}
+          />
+          <br />
+          <Input
+            name="Password"
+            type="password"
+            placeholder="Password"
+            onChange={this.handleChange}
+          />
+          <br />
+          <Input
+            name="Cpassword"
+            type="password"
+            placeholder="Confirm password"
+            onChange={this.handleChange}
+          />
+          <br />
+          <Button color="primary" type="submit">Submit</Button>
+        </div>
       </Form>
     );
   }

@@ -71,3 +71,48 @@
   width:50vw;
   border-radius:10px;
 }
+
+.feed{
+  position : relative;
+  left : 35vw
+}
+
+.feedCard{
+  margin-top: 7%;
+}
+
+#detailsBtn{
+  width: 17%;
+  position: relative;
+  align-self: center;
+}
+
+.filter{
+  position: relative;
+  align-self: center;
+}
+
+.signup{
+  width:25%;
+  float: right;
+  position: relative;
+  right: 10%;
+  margin-top:5%;
+  border: 1px solid;
+  border-radius:5%;
+  padding: 30px;
+  text-align: center;
+}
+.buttonChange{
+ margin-right: 5%;
+ margin-top: 5%;
+ margin-bottom: 5%;
+ position: relative;
+ left: 2%;
+}
+#logotext{
+  font-size: 20px;
+}
+.submit-button{
+  background-color: dodgerblue;
+}
