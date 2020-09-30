@@ -33,15 +33,20 @@ class FreelancerSign extends React.Component {
     };
     if (this.state.password !== this.state.Cpassword) {
       alert("check your password again !");
-    } else {
-      axios
-        .post("", body)
-        .then(function (response) {
-          console.log(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+
+    }
+    else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)){
+      alert("wrong email !");
+    }else{
+    axios
+      .post("", body)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+
     }
   }
 

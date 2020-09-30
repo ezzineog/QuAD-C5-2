@@ -22,18 +22,17 @@ import {
 } from "reactstrap";
 
 export class Aplications extends React.Component {
-
   state = {
     visible: true,
     modalIsopen: false,
-  }
+  };
 
   toggleModal() {
-    this.setState({visible: this.state.visible});
+    this.setState({ visible: this.state.visible });
   }
 
   openModal() {
-    this.setState({modalIsopen: true})
+    this.setState({ modalIsopen: true });
   }
 
   closeModal() {

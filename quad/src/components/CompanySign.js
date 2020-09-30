@@ -26,17 +26,22 @@ class CompanySign extends React.Component {
       Email: this.state.Email,
       Password: this.state.Password
     };
-    if (this.state.Password !== this.state.Cpassword) {
-      alert("check your password again !");
-    } else {
-      axios
-        .post("", body)
-        .then(function (response) {
-          console.log(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+
+    if (body.Password !== this.state.Cpassword) {
+      alert("check your password again !")
+    }
+    else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.Email)){
+      alert("wrong email !");
+    }else{
+    axios
+      .post("", body)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
     }
   }
 
