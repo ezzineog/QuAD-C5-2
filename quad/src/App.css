@@ -87,3 +87,27 @@
   align-self: center;
 
 }
+.signup{
+  width:25%;
+  float: right;
+  position: relative;
+  right: 10%;
+  margin-top:5%;
+  border: 1px solid;
+  border-radius:5%;
+  padding: 30px;
+  text-align: center;
+}
+.buttonChange{
+ margin-right: 5%;
+ margin-top: 5%;
+ margin-bottom: 5%;
+ position: relative;
+ left: 2%;
+}
+#logotext{
+  font-size: 20px;
+}
+.submit-button{
+  background-color: dodgerblue;
+}
