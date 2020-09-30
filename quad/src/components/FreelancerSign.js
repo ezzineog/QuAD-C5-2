@@ -29,10 +29,11 @@ class FreelancerSign extends React.Component {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
-      password: this.state.password,
+      password: this.state.password
     };
-    if (body.password !== this.state.Cpassword) {
+    if (this.state.password !== this.state.Cpassword) {
       alert("check your password again !");
+
     }
     else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)){
       alert("wrong email !");
@@ -45,6 +46,7 @@ class FreelancerSign extends React.Component {
       .catch(function (error) {
         console.log(error);
       })
+
     }
   }
 

@@ -18,7 +18,9 @@ const App = () => {
   return (
     <div>
   <Navbar />
+
   <Signup/>
+
   </div>
   );
 };

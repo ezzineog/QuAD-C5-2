@@ -24,8 +24,9 @@ class CompanySign extends React.Component {
     let body = {
       CompanyName: this.state.CompanyName,
       Email: this.state.Email,
-      Password: this.state.Password,
+      Password: this.state.Password
     };
+
     if (body.Password !== this.state.Cpassword) {
       alert("check your password again !")
     }
@@ -40,6 +41,7 @@ class CompanySign extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+
     }
   }
 
