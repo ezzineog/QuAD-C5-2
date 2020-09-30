@@ -5,7 +5,7 @@ CREATE DATABASE jobs;
 USE jobs;
 
 
-CREATE TABLE jobs (
+CREATE TABLE jobsOffers (
     ID int NOT NULL AUTO_INCREMENT,
     companyId varchar(25),
     JobTitle varchar(25),
@@ -13,8 +13,8 @@ CREATE TABLE jobs (
     FOREIGN KEY (ID)
 )
 
--- mysql -u root < Jobs.sql
+-- mysql -u root -p < Jobs.sql
 
-INSERT INTO jobs (id ,Name,JobTitle,Description) VALUES (1,"companyName","CompanyTitle","789");
-INSERT INTO jobs (id ,Name,JobTitle,Description) VALUES (2,"Ezzines company","test","freeelance");
-INSERT INTO jobs (id ,Name,JobTitle,Description) VALUES (3,"7851","CompanyTitle","123");
+INSERT INTO jobsOffers (id ,Name,JobTitle,Description) VALUES (1,"companyName","CompanyTitle","789");
+INSERT INTO jobsOffers (id ,Name,JobTitle,Description) VALUES (2,"Ezzines company","test","freeelance");
+INSERT INTO jobsOffers (id ,Name,JobTitle,Description) VALUES (3,"7851","CompanyTitle","123");

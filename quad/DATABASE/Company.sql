@@ -18,8 +18,6 @@ CREATE TABLE company (
 
 INSERT INTO company (id, Name, Email, Password, JobOffers, Location) VALUES (1, 'TEST', 'TEST@GMAIL.COM', 'PWDTEST123', 'NOTHING', 'TUNISIA');
 
-
 INSERT INTO company (id, Name, Email, Password, JobOffers, Location) VALUES (2, '2TEST', '2TEST@GMAIL.COM', '2PWDTEST123', '2NOTHING', '2TUNISIA');
-
 
 INSERT INTO company (id, Name, Email, Password, JobOffers, Location) VALUES (3, '3TT', '3-TEST@GMAIL.COM', '3-PWDTEST123', '3-NOTHING', '3-TUNISIA');
