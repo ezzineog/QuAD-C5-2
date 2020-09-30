@@ -28,6 +28,9 @@ class CompanySign extends React.Component {
     };
     if (body.Password !== this.state.Cpassword) {
       alert("check your password again !")
+    }
+    else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.Email)){
+      alert("wrong email !");
     }else{
     axios
       .post("", body)

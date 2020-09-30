@@ -33,6 +33,9 @@ class FreelancerSign extends React.Component {
     };
     if (body.password !== this.state.Cpassword) {
       alert("check your password again !");
+    }
+    else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)){
+      alert("wrong email !");
     }else{
     axios
       .post("", body)
