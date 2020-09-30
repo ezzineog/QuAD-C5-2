@@ -1,16 +1,16 @@
 import React from "react";
 import axios from "axios";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-
+import { Form,  Input, Button, FormGroup } from "reactstrap";
+// FormGroup, Label,
 class FreelancerSign extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      Cpassword: "",
+      FirstName: "",
+      LastName: "",
+      Email: "",
+      Password: "",
+      Cpassword: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.getSign = this.getSign.bind(this);
@@ -21,6 +21,8 @@ class FreelancerSign extends React.Component {
     // console.log("=====>",event.target.value)
   }
 
+
+
   getSign() {
     
     let body = {
@@ -28,10 +30,12 @@ class FreelancerSign extends React.Component {
       lastName: this.state.lastName,
       email: this.state.email,
       password: this.state.password,
-      Cpassword: this.state.Cpassword
     };
-    if (body.password !== body.Cpassword) {
+    if (body.password !== this.state.Cpassword) {
       alert("check your password again !");
+    }
+    else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)){
+      alert("wrong email !");
     }else{
     axios
       .post("", body)
@@ -40,7 +44,7 @@ class FreelancerSign extends React.Component {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      })
     }
   }
 
@@ -86,8 +90,10 @@ class FreelancerSign extends React.Component {
           <Button color="primary" type="submit" onClick={this.getSign}>
             Submit
           </Button>
+      
         </FormGroup>
       </Form>
+      
     );
   }
 }
