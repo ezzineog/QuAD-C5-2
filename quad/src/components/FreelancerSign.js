@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Form,  Input, Button } from "reactstrap";
+import { Form,  Input, Button, FormGroup } from "reactstrap";
 // FormGroup, Label,
 class FreelancerSign extends React.Component {
   constructor(props) {
