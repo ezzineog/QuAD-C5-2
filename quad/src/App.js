@@ -10,6 +10,7 @@ import Signup from "./components/Signup.js";
 // import { }
 // import bootstrap.
 import "bootstrap/dist/css/bootstrap.css";
+import FreelancerProfile from "./components/freelancer/Profile/FreelancerProfile.js"
 
 const App = () => {
   return (
