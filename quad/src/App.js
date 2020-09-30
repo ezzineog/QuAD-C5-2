@@ -19,8 +19,8 @@ const App = () => {
   return (
     <div>
   <Navbar />
-  <Signup/>
-  {/* <FreelancerSection/> */}
+  {/* <Signup/> */}
+  <FreelancerSection/>
   </div>
   );
 };
