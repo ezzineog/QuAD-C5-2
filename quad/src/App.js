@@ -17,8 +17,8 @@ import FreelancerProfile from "./components/freelancer/Profile/FreelancerProfile
 const App = () => {
   return (
     <div>
-  <FreelancerProfile />
-
+  <Navbar />
+  <Signup/>
   </div>
   );
 };

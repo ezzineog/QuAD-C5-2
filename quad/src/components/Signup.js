@@ -29,7 +29,7 @@ class Signup extends React.Component {
     return (
       <div className="signup">
         <Label id="logotext"> You don't have an account? Create one </Label>
-
+        <br />
         <Button
           outline
           color="primary"
