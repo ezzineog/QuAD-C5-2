@@ -15,7 +15,7 @@ const Users = function() {
 const addUsers = function(user) {
     console.log('users =======>',user)
     return new Promise((resolve, reject) => {
-        connection.query(`INSERT INTO users (FirstName, LastName, Email, Password) VALUES ('${user.FirstName}','${user.LastName}','${user.Email}','${user.Password}')`, (err ,data) => {
+        connection.query(`INSERT INTO users SET ?`, user, (err ,data) => {
             if(err) { reject(err)}
             resolve(data)
         });

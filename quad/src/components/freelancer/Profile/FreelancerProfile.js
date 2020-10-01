@@ -2,6 +2,7 @@ import React from "react";
 import PublicProfile from "./PublicProfile.js";
 import EditProfile from "./EditProfile.js";
 import Edit from "./Edit.js";
+import axios from 'axios';
 
 class FreelancerProfile extends React.Component {
   constructor(props) {
@@ -13,12 +14,17 @@ class FreelancerProfile extends React.Component {
 
   handelEditProfil() {
     if (this.state.profileType === 1) {
+    
       this.setState({ profileType: 2 });
     }
   }
-  handelPublicProfile(){
+  handelPublicProfile(body){
     if (this.state.profileType === 2) {
-      this.setState({ profileType: 1 });
+      axios.post('http://127.0.0.1:3008/signup', body)
+      .then(response => console.log('[profile updated ==>]',response.data))
+      .then(()=> this.setState({ profileType: 2 }))
+      .catch(error  => console.log(error));
+      
     }
   }
 
