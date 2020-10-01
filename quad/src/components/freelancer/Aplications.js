@@ -21,7 +21,7 @@ import {
   ModalFooter,
 } from "reactstrap";
 
-export class Aplications extends React.Component {
+export default class Aplications extends React.Component {
   state = {
     visible: true,
     modalIsopen: false,
