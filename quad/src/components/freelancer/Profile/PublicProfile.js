@@ -13,7 +13,9 @@ class PublicProfile extends React.Component {
    
     
     render() {
-     return null   
+     return (
+       <div>Hello numbers</div>
+     )   
     }
 }
 

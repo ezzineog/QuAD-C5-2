@@ -1,9 +1,10 @@
-const mysql = require('mysql');
-const mysqlConfig = require('./config.js');
+const mysql = require("mysql");
+const mysqlConfig = require("./config.js");
 const connection = mysql.createConnection(mysqlConfig);
-// Sign Up 
+// Sign Up
 // ==========================================================================
 const addUser = function(user) {
+
     console.log('users =======>',user)
     return new Promise((resolve, reject) => {
         connection.query(`INSERT INTO users SET ?`, user, (err ,data) => {
@@ -21,8 +22,10 @@ const editUser = function(user) {
             if(err) { reject(err)}
             resolve(data)
         });
+
     });
-};
+  }
+
 
 
 
@@ -36,6 +39,7 @@ const jobOffers = function() {
             resolve(data)
         });
     });
+
 };
 
 const getUser = function(email) {
@@ -46,12 +50,22 @@ const getUser = function(email) {
         });
     });
 };
-
+const addCompanySignUpData = function(user) {
+  console.log('users =======>',user)
+  return new Promise((resolve, reject) => {
+      connection.query(`INSERT INTO company SET ?`, user, (err ,data) => {
+          if(err) { reject(err)}
+          resolve(data)
+      });
+  });
+};
 module.exports = {
     getUser,
     addUser,
     editUser,
-    jobOffers
+    jobOffers,
+    addCompanySignUpData
+
   };
   
   // const updateUsersDescription = function(user) {

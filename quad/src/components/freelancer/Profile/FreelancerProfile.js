@@ -8,36 +8,21 @@ class FreelancerProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      freelancer : this.props.freelancer,
       profileType: 1 };
     this.handelEditProfil = this.handelEditProfil.bind(this);
     this.handelPublicProfile = this.handelPublicProfile.bind(this);
   }
 
-  componentDidMount(props){
-    console.log(this.props.freelancer)
-  }
-  
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log('Sould FreelancerProfile update?')
-  //   return true;
-  // }
-  
-  // componentDidUpdate(previousProps, previousState) {
-  //   console.log('FreelancerProfile did update')
-  
-  // }
+   
   handelEditProfil() {
     if (this.state.profileType === 1) {
     
       this.setState({ profileType: 2 });
     }
   }
-  handelPublicProfile(body){
+  handelPublicProfile(){
     if (this.state.profileType === 2) {
-      this.setState({ profileType: 2 })
-      
-      
+      this.setState({ profileType: 1 })
     }
   }
 
@@ -45,7 +30,7 @@ class FreelancerProfile extends React.Component {
     let compo;
     let edit;
     if (this.state.profileType === 1) {
-      compo = <PublicProfile freelancer = {this.state.freelancer}/>;
+      compo = <PublicProfile />;
     }
     if (this.state.profileType === 2){
       compo = <EditProfile handelPofile={this.handelPublicProfile} />;

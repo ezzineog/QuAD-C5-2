@@ -8,6 +8,7 @@ import Aplications from './Aplications';
 
 
 export default class FreelancerSection extends Component {
+
     
 
     // componentDidMount(props){
@@ -29,6 +30,7 @@ export default class FreelancerSection extends Component {
     render(props) {
         // this.props.router.push('/Profile')
 
+
         return (
             <Router>
                 <UserNavBar/>  
@@ -36,8 +38,9 @@ export default class FreelancerSection extends Component {
                 <Route path="/Profile" render={() => <FreelancerProfile freelancer={this.props.freelancer} />}/>
                 <Route path="/Aplications" component={Aplications} />
                 <Route path="/logout" component={Aplications} />
+
             </Router>
-        )
+        );
     }
 }
 
