@@ -20,7 +20,7 @@ app.post('/signup', async (req, res)  => {
     console.log('req.body');
     console.log('req.body ====>',req.body);
     try {
-        const data = await db.addUsers(req.body);
+        const data = await db.addUser(req.body);
         res.status(200).send(data);
     }
     catch (e) {
@@ -30,7 +30,7 @@ app.post('/signup', async (req, res)  => {
 // Getting All the Signed In Users
 app.get('/signup', async (req, res) => {
     try{
-        const allData = await db.Users();
+        const allData = await db.getUsers();
         res.status(200).send(allData);
     }
     catch (err) {
@@ -40,18 +40,13 @@ app.get('/signup', async (req, res) => {
 // checking if login data is valid
 app.post('/login', async (req, res) => {
     try {
-        const data = await db.Users();
-        console.log('[Log in all data]',data);
-        for(var i = 0; i < data.length; i++) {
-            var elm = data[i];
-            console.log('elm.email',elm.Email)
-             console.log('elm.password',elm.Password)
-             // console.log('req.body.name / password',req.body.Email,req.body.Password);
-             // console.log('elm ====> ',elm.Email === req.body.Email && elm.Password === req.body.Password);
-            if (elm.Email === req.body.email && elm.Password === req.body.password) {
-                res.status(200).send('successfully Logged In !')
+        const data = await db.getUser(req.body.email);
+        console.log(data)
+            if (data[0].Email === req.body.email && data[0].Password === req.body.password) {
+                res.status(200).send(data[0])
+
             }
-        }
+        
     }catch (err) {console.log(err)}
 });
 
@@ -72,7 +67,7 @@ app.put('/update', async (req, res) => {
   app.post('/profile', async (req, res)  => {
     console.log('req.body ====>',req.body);
     try {
-        const profileData = await db.addUsersDescription(req.body);
+        const profileData = await db.editUser(req.body);
         res.send(profileData);
     }
     catch (e) {

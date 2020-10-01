@@ -10,16 +10,12 @@ class PublicProfile extends React.Component {
 
     }
 
-    componentDidMount() {
-        axios.get(``)
-          .then(res => {
-            const personalProfile = res.data;
-            this.setState({personalProfile});
-          })
-      }
+   
     
     render() {
-     return null   
+     return (
+       <div>Hello numbers</div>
+     )   
     }
 }
 
