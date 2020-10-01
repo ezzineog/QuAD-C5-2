@@ -14,22 +14,10 @@ const Users = function () {
   });
 };
 
-
-const addUsers = function(user) {
-    console.log('users =======>',user)
-    return new Promise((resolve, reject) => {
-        connection.query(`INSERT INTO users SET ?`, user, (err ,data) => {
-            if(err) { reject(err)}
-            resolve(data)
-        });
-    });
-};
-// ==========================================================================
-// Setting up profiles
-
-const UsersDescription = function () {
+const addUsers = function (user) {
+  console.log("users =======>", user);
   return new Promise((resolve, reject) => {
-    connection.query("SELECT * FROM UserDescription", (err, data) => {
+    connection.query(`INSERT INTO users SET ?`, user, (err, data) => {
       if (err) {
         reject(err);
       }
@@ -38,20 +26,92 @@ const UsersDescription = function () {
   });
 };
 
-const addUsersDescription = function (user) {
-  console.log("users =======>", user);
+const updateUsersAllData = function (user) {
   return new Promise((resolve, reject) => {
-    connection.query(
-      `INSERT INTO UserDescription (Age, Avatar, Description, PhoneNumber, Skills) VALUES (${user.Age},'${user.Avatar}','${user.Description}','${user.PhoneNumber}','${user.Skills}')`,
-      (err, data) => {
-        if (err) {
-          reject(err);
-        }
-        resolve(data);
-      }
-    );
+    connection.query(`UPDATE TABLE users SET ?`);
+    if (err) {
+      reject(err);
+    }
+    resolve(user);
   });
 };
+
+// ==========================================================================
+//===========JOB OFFERS ============
+   // bringing job offers
+
+const GetjobOffers = function () {
+    return new Promise((resolve, reject) => {
+    connection.query("SELECT * FROM joboffers", (err, data) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(data);
+    });
+  });
+};
+
+// inserting job offers
+
+const AddJobOffers = function (job) {
+  console.log("jobs =======>", job);
+  return new Promise((resolve, reject) => {
+    connection.query(`INSERT INTO joboffers (companyId ,JobTitle ,Description) VALUES ('${job.companyId}','${job.JobTitle}','${job.Description}')`, (err, jobData) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(jobData);
+    });
+  });
+};
+//=================Company=====================
+const addCompanySignUpData = function (company) {
+  console.log("companys ADD =======>", company);
+  return new Promise((resolve, reject) => {
+    connection.query(`INSERT INTO company SET ?`, company, (err, data) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(data);
+    });
+  });
+};
+const GetCompanySignUpData = function (company) {
+
+  console.log("companys GET =======>", company);
+
+  return new Promise((resolve, reject) => {
+    connection.query(`SELECT * FROM company`, (err, CompanyData) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(CompanyData);
+    });
+  });
+};
+
+module.exports = {
+  Users,
+  addUsers,
+  GetjobOffers,
+  addCompanySignUpData,
+  AddJobOffers,
+  updateUsersAllData,
+  GetCompanySignUpData
+};
+// ,
+// UsersDescription,
+// addUsersDescription,
+
+//
+// const updateUsersDescription = function(user) {
+//     return new Promise((resolve, reject) => {
+//         connection.query('UPDATE describe ----------------')
+//         if(err) { reject(err)}
+//         resolve(user)
+//     })
+// },updateUse
+
 // update all the users datas
 // const join = function (user) {
 //   return new Promise((resolve, reject) => {
@@ -64,47 +124,3 @@ const addUsersDescription = function (user) {
 //     resolve(user);
 //   });
 // };
-const updateUsersAllData = function (user) {
-  return new Promise((resolve, reject) => {
-    connection.query(`UPDATE TABLE users SET name = ${user.FirstName}, LastName = ${user.LastName},Email = ${user.Email}, Password = ${user.Password} INNER JOIN  UserDescription Age = ${user.Age}, Avatar = ${user.Avatar}, Description = ${user.Description},PhoneNumber = ${user.PhoneNumber}, Skills = ${user.Skills} WHERE user.id = userDescription.id`);
-    if (err) {
-      reject(err);
-    }
-    resolve(user);
-  });
-};
-
-//=======================
-// bringing job offers
-
-const jobOffers = function() {
-    return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM joboffers', (err ,data) => {
-            if(err) { reject(err)}
-            resolve(data)
-        });
-    });
-};
-const addCompanySignUpData = function(user) {
-  console.log('users =======>',user)
-  return new Promise((resolve, reject) => {
-      connection.query(`INSERT INTO company SET ?`, user, (err ,data) => {
-          if(err) { reject(err)}
-          resolve(data)
-      });
-  });
-};
-module.exports = {
-
-    Users,addUsers,
-    UsersDescription,addUsersDescription,
-    jobOffers,addCompanySignUpData
-  };
-  
-  // const updateUsersDescription = function(user) {
-//     return new Promise((resolve, reject) => {
-//         connection.query('UPDATE describe ----------------')
-//         if(err) { reject(err)}
-//         resolve(user)
-//     })
-// },updateUse

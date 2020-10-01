@@ -36,7 +36,7 @@ app.get('/signup', async (req, res) => {
     catch (err) {
         console.error(err);
     }
-})
+});
 // checking if login data is valid
 app.post('/login', async (req, res) => {
     try {
@@ -46,8 +46,6 @@ app.post('/login', async (req, res) => {
             var elm = data[i];
             console.log('elm.email',elm.Email)
              console.log('elm.password',elm.Password)
-             // console.log('req.body.name / password',req.body.Email,req.body.Password);
-             // console.log('elm ====> ',elm.Email === req.body.Email && elm.Password === req.body.Password);
             if (elm.Email === req.body.email && elm.Password === req.body.password) {
                 res.status(200).send('successfully Logged In !')
             }
@@ -89,27 +87,46 @@ app.get('/profile', async (req, res) => {
     catch (err) {
         console.error(err);
     }
-})
-
-// getting job offers
-app.get('/home', async (req, res) => {
+});
+//=========JOB OFFERS=====================
+   // getting job offers
+app.get('/jobs', async (req, res) => {
     try{
-        const jobsData = await db.jobOffers();
+        const jobsData = await db.GetjobOffers();
         res.status(200).send(jobsData);
     }
     catch (err) {
         console.error(err);
     }
-})
-// Company signUp
-app.post('/signup', async (req, res) => {
+});
+
+   // inserting job offers
+app.post('/jobs', async(req,res) => {
     try{
-        const Cdata = await db.addCompanySignUpData();
+        const addedJobs = await db.AddJobOffers(req.body);
+        res.status(200).send(addedJobs)
+    }catch(err) {
+        console.log('[server side joboffers insert]',err)
+    }
+});
+//======================================================
+  // Company signUp
+app.post('/signup/company', async (req, res) => {
+    try{
+        const Cdata = await db.addCompanySignUpData(req.body);
         res.status(200).send(Cdata);
     }
     catch (e) {res.send(e)}
+});
+
+app.get('/signup/company', async (req, res) => {
+    try {const codata = await db.GetCompanySignUpData();
+    res.status(200).send(codata)
+ }
+ catch (err) {res.send(err)}
 })
-app.post('/login', async (req, res) => {
+
+app.post('/login/company', async (req, res) => {
     try {
         const data = await db.addCompanySignUpData();
         console.log('[Log in all data]',data);
@@ -119,6 +136,7 @@ app.post('/login', async (req, res) => {
                 res.status(200).send('successfully Logged In !')}};
     }catch (err) {console.log(err)}
     
-// 
+
 });
-app.listen(port, () => console.log(`server is listening on port ${port}`));
+app.listen(port,
+     () => console.log(`server is listening on port ${port}`));
