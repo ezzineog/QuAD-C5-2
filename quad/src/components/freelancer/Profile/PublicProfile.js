@@ -10,16 +10,22 @@ class PublicProfile extends React.Component {
 
     }
 
-    componentDidMount() {
-        axios.get(``)
-          .then(res => {
-            const personalProfile = res.data;
-            this.setState({personalProfile});
-          })
-      }
+   
     
     render() {
-     return null   
+      console.log(this.props.freelance)
+     return (
+       <div>Hello numbers
+       <img src={this.props.freelance.avatar}  width="50" height="100"></img>
+       <h1>First Name: {this.props.freelance.FirstName}</h1>
+       <h1>Last Name: {this.props.freelance.LastName}</h1>
+       <h1>Age: {this.props.freelance.Age}</h1>
+       <h1>Email: {this.props.freelance.Email}</h1>
+       <h1>Phone: {this.props.freelance.PhoneNumber}</h1>
+       <h1>Description: {this.props.freelance.Description}</h1>
+       <h1>Skills: {this.props.freelance.Skills}</h1>
+       </div>
+     )   
     }
 }
 
