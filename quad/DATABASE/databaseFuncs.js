@@ -3,19 +3,8 @@ const mysqlConfig = require("./config.js");
 const connection = mysql.createConnection(mysqlConfig);
 // Sign Up
 // ==========================================================================
-const Users = function () {
-  return new Promise((resolve, reject) => {
-    connection.query("SELECT * FROM users", (err, data) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(data);
-    });
-  });
-};
+const addUser = function(user) {
 
-
-const addUsers = function(user) {
     console.log('users =======>',user)
     return new Promise((resolve, reject) => {
         connection.query(`INSERT INTO users SET ?`, user, (err ,data) => {
@@ -27,52 +16,18 @@ const addUsers = function(user) {
 // ==========================================================================
 // Setting up profiles
 
-const UsersDescription = function () {
-  return new Promise((resolve, reject) => {
-    connection.query("SELECT * FROM UserDescription", (err, data) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(data);
-    });
-  });
-};
+const editUser = function(user) {
+    return new Promise((resolve, reject) => {
+        connection.query('INSERT INTO users SET ?', user, (err ,data) => {
+            if(err) { reject(err)}
+            resolve(data)
+        });
 
-const addUsersDescription = function (user) {
-  console.log("users =======>", user);
-  return new Promise((resolve, reject) => {
-    connection.query(
-      `INSERT INTO UserDescription (Age, Avatar, Description, PhoneNumber, Skills) VALUES (${user.Age},'${user.Avatar}','${user.Description}','${user.PhoneNumber}','${user.Skills}')`,
-      (err, data) => {
-        if (err) {
-          reject(err);
-        }
-        resolve(data);
-      }
-    );
-  });
-};
-// update all the users datas
-// const join = function (user) {
-//   return new Promise((resolve, reject) => {
-//     connection.query(
-//       "SELECT * FROM users JOIN UserDescription ON users.UsersDescription_id = UsersDescription.UsersDescription_id"
-//     );
-//     if (err) {
-//       reject(err);
-//     }
-//     resolve(user);
-//   });
-// };
-const updateUsersAllData = function (user) {
-  return new Promise((resolve, reject) => {
-    connection.query(`UPDATE TABLE users SET name = ${user.FirstName}, LastName = ${user.LastName},Email = ${user.Email}, Password = ${user.Password} INNER JOIN  UserDescription Age = ${user.Age}, Avatar = ${user.Avatar}, Description = ${user.Description},PhoneNumber = ${user.PhoneNumber}, Skills = ${user.Skills} WHERE user.id = userDescription.id`);
-    if (err) {
-      reject(err);
-    }
-    resolve(user);
-  });
-};
+    });
+  }
+
+
+
 
 //=======================
 // bringing job offers
@@ -80,6 +35,16 @@ const updateUsersAllData = function (user) {
 const jobOffers = function() {
     return new Promise((resolve, reject) => {
         connection.query('SELECT * FROM joboffers', (err ,data) => {
+            if(err) { reject(err)}
+            resolve(data)
+        });
+    });
+
+};
+
+const getUser = function(email) {
+    return new Promise((resolve, reject) => {
+        connection.query(`SELECT * FROM users where Email = '${email}' `, (err ,data) => {
             if(err) { reject(err)}
             resolve(data)
         });
@@ -94,17 +59,26 @@ const addCompanySignUpData = function(user) {
       });
   });
 };
-module.exports = {
 
-    Users,addUsers,
-    UsersDescription,addUsersDescription,
-    jobOffers,addCompanySignUpData
-  };
+
+// -*- bringing company informations for the company profile -*-\\
+const companyInfo = () => {
+  return new Promise((resolve, reject) => {
+    connection.query("SELECT * FROM company", (err, data) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(data);
+    });
+  });
+};
+
+module.exports = {
+  getUser,
+  addUser,
+  editUser,
+  jobOffers,
+  addCompanySignUpData,
+  companyInfo
+};
   
-  // const updateUsersDescription = function(user) {
-//     return new Promise((resolve, reject) => {
-//         connection.query('UPDATE describe ----------------')
-//         if(err) { reject(err)}
-//         resolve(user)
-//     })
-// },updateUse
