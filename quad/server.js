@@ -44,10 +44,10 @@ app.post('/login', async (req, res) => {
         console.log('[Log in all data]',data);
         for(var i = 0; i < data.length; i++) {
             var elm = data[i];
-             console.log('elm.email',elm.Email)
+            console.log('elm.email',elm.Email)
              console.log('elm.password',elm.Password)
-            // console.log('req.body.name / password',req.body.Email,req.body.Password);
-            // console.log('elm ====> ',elm.Email === req.body.Email && elm.Password === req.body.Password);
+             // console.log('req.body.name / password',req.body.Email,req.body.Password);
+             // console.log('elm ====> ',elm.Email === req.body.Email && elm.Password === req.body.Password);
             if (elm.Email === req.body.email && elm.Password === req.body.password) {
                 res.status(200).send('successfully Logged In !')
             }
@@ -69,7 +69,7 @@ app.put('/update', async (req, res) => {
 // setting up profile
 
   // add  Description
-app.post('/profile', async (req, res)  => {
+  app.post('/profile', async (req, res)  => {
     console.log('req.body ====>',req.body);
     try {
         const profileData = await db.addUsersDescription(req.body);
@@ -80,7 +80,7 @@ app.post('/profile', async (req, res)  => {
     }
 });
 
-  // Getting All the SignedIn Users Description
+// Getting All the SignedIn Users Description
 app.get('/profile', async (req, res) => {
     try{
         const profileAllData = await db.UsersDescription();
@@ -91,7 +91,7 @@ app.get('/profile', async (req, res) => {
     }
 })
 
-  // getting job offers
+// getting job offers
 app.get('/home', async (req, res) => {
     try{
         const jobsData = await db.jobOffers();
@@ -101,13 +101,24 @@ app.get('/home', async (req, res) => {
         console.error(err);
     }
 })
-
-
-// Updating Users data .
-// app.put('/Update', async(req, res) => {
-//     try{
-//            const UpdatData = await db.updateUsers(req.body)
-//     }
-//     catch (e) {console.log}
-// })
+// Company signUp
+app.post('/signup', async (req, res) => {
+    try{
+        const Cdata = await db.addCompanySignUpData();
+        res.status(200).send(Cdata);
+    }
+    catch (e) {res.send(e)}
+})
+app.post('/login', async (req, res) => {
+    try {
+        const data = await db.addCompanySignUpData();
+        console.log('[Log in all data]',data);
+        for(var i = 0; i < data.length; i++) {
+            var elm = data[i];
+            if (elm.Email === req.body.email && elm.Password === req.body.password) {
+                res.status(200).send('successfully Logged In !')}};
+    }catch (err) {console.log(err)}
+    
+// 
+});
 app.listen(port, () => console.log(`server is listening on port ${port}`));
