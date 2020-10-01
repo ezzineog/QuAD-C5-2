@@ -1,12 +1,12 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 const port = 3008;
-const db = require('./DATABASE/databaseFuncs.js');
+const db = require("./DATABASE/databaseFuncs.js");
 // cors
 
-const cors = require('cors');
+const cors = require("cors");
 app.use(cors());
 
 // BODY-PARSER
@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // app.use(express.static('public'))
 //
+
 // the table of the users  Describtion  
 app.post('/signup', async (req, res)  => {
     console.log('req.body');
@@ -51,17 +52,18 @@ app.post('/login', async (req, res) => {
 });
 
 // =================================================================
-app.put('/update', async (req, res) => {
-    console.log('req.body ====>',req.body);
-    try {
-        const elm = await db.updateUsersAllData(req.body);
-        res.status(200).send(elm)
-    }catch(e) {
-        res.send(e)
-    }
+app.put("/update", async (req, res) => {
+  console.log("req.body ====>", req.body);
+  try {
+    const elm = await db.updateUsersAllData(req.body);
+    res.status(200).send(elm);
+  } catch (e) {
+    res.send(e);
+  }
 });
 // =================================================================
 // setting up profile
+
 
   // add  Description
   app.post('/profile', async (req, res)  => {
@@ -73,47 +75,62 @@ app.put('/update', async (req, res) => {
     catch (e) {
         res.send(e);
     }
+
 });
 
 // Getting All the SignedIn Users Description
-app.get('/profile', async (req, res) => {
-    try{
-        const profileAllData = await db.UsersDescription();
-        res.status(200).send(profileAllData);
-    }
-    catch (err) {
-        console.error(err);
-    }
-})
+// app.get("/profile", async (req, res) => {
+//   try {
+//     const profileAllData = await db.UsersDescription();
+//     res.status(200).send(profileAllData);
+//   } catch (err) {
+//     console.error(err);
+//   }
+// });
 
 // getting job offers
-app.get('/home', async (req, res) => {
-    try{
-        const jobsData = await db.jobOffers();
-        res.status(200).send(jobsData);
-    }
-    catch (err) {
-        console.error(err);
-    }
-})
-// Company signUp
-app.post('/signup', async (req, res) => {
-    try{
-        const Cdata = await db.addCompanySignUpData();
-        res.status(200).send(Cdata);
-    }
-    catch (e) {res.send(e)}
-})
-app.post('/login', async (req, res) => {
-    try {
-        const data = await db.addCompanySignUpData();
-        console.log('[Log in all data]',data);
-        for(var i = 0; i < data.length; i++) {
-            var elm = data[i];
-            if (elm.Email === req.body.email && elm.Password === req.body.password) {
-                res.status(200).send('successfully Logged In !')}};
-    }catch (err) {console.log(err)}
-    
-// 
+app.get("/home", async (req, res) => {
+  try {
+    const jobsData = await db.jobOffers();
+    res.status(200).send(jobsData);
+  } catch (err) {
+    console.error(err);
+  }
 });
+// Company signUp
+app.post("/signup", async (req, res) => {
+  try {
+    const Cdata = await db.addCompanySignUpData();
+    res.status(200).send(Cdata);
+  } catch (e) {
+    res.send(e);
+  }
+});
+app.post("/login", async (req, res) => {
+  try {
+    const data = await db.addCompanySignUpData();
+    console.log("[Log in all data]", data);
+    for (var i = 0; i < data.length; i++) {
+      var elm = data[i];
+      if (elm.Email === req.body.email && elm.Password === req.body.password) {
+        res.status(200).send("successfully Logged In !");
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+
+  //
+});
+
+// -*- sending company informatuions to the company profile -*- \\
+app.get("/profile", async (req, res) => {
+  try {
+    const companyInfos = await db.companyInfo();
+    res.status(200).send(companyInfos);
+  } catch (err) {
+    console.log(" we can't give you data ", err);
+  }
+});
+
 app.listen(port, () => console.log(`server is listening on port ${port}`));

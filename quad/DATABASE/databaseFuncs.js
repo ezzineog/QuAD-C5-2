@@ -59,19 +59,26 @@ const addCompanySignUpData = function(user) {
       });
   });
 };
-module.exports = {
-    getUser,
-    addUser,
-    editUser,
-    jobOffers,
-    addCompanySignUpData
 
-  };
+// -*- bringing company informations for the company profile -*-\\
+const companyInfo = () => {
+  return new Promise((resolve, reject) => {
+    connection.query("SELECT * FROM company", (err, data) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(data);
+    });
+  });
+};
+
+module.exports = {
+  getUser,
+  addUser,
+  editUser,
+  jobOffers,
+  addCompanySignUpData,
+  companyInfo
+};
+
   
-  // const updateUsersDescription = function(user) {
-//     return new Promise((resolve, reject) => {
-//         connection.query('UPDATE describe ----------------')
-//         if(err) { reject(err)}
-//         resolve(user)
-//     })
-// },updateUse

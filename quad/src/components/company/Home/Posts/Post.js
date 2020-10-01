@@ -33,8 +33,9 @@
 //         freeLancerLastName: res.LastName,
 //         freeLancerEmail: res.Email,
 //       })
-//     );
-//     atch((err) => console.log("[client side err]", err));
+
+//     )
+//     .catch((err) => console.log("[client side err]", err));
 //   }
 //   render() {
 //     var post = this.state.posts.map((post) => {
