@@ -16,9 +16,7 @@ class EditProfile extends React.Component {
     };
 
   }
-  handelProfile = () => {
-    this.props.handelPofile()
-  }
+ 
 
   render() {
     let body = {
@@ -52,8 +50,8 @@ class EditProfile extends React.Component {
         <Input type="text" name="Descreption" placeholder="Describe yourself.."/><br/>
         <Label for="Skills">Skills:</Label><br/>
         <Input type="text" name="Skills" placeholder="Describe your skills.."/><br/>
-        <Button onClick={this.handelProfile}>Cancel</Button>
-        <Button onClick={this.handelProfile(body)}>Save</Button>
+        <Button >Cancel</Button>
+        <Button >Save</Button>
     </div>
     </Form>
     );
