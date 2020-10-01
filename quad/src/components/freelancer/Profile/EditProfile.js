@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import axios from "axios";
 
 class EditProfile extends React.Component {
   constructor(props) {
@@ -14,9 +15,13 @@ class EditProfile extends React.Component {
       Descreption : '',
       Skills : ''
     };
-
+    this.handleChange = this.handleChange.bind(this);
   }
  
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+    console.log("=====>",event.target.value)
+  }
 
   render() {
     let body = {
@@ -33,23 +38,23 @@ class EditProfile extends React.Component {
         <Form>
         <div>
         <Label for="avatar">Avatar</Label>
-        <Input type="file" name="avatar" accept="image/*"/>
+        <Input type="file" name="avatar" accept="image/*" onChange={this.handleChange}/>
         <Label for="firstName">First Name:</Label>
-        <Input type="text" name="firstName" /><br/>
+        <Input type="text" name="firstName" onChange={this.handleChange} /><br/>
         <Label for="lastName">Last Name:</Label>
-        <Input type="text" name="lastName"/><br/>
+        <Input type="text" name="lastName" onChange={this.handleChange}/><br/>
         <Label for="email">Email:</Label><br/>
-        <Input type="email" name="email"/><br/>
+        <Input type="email" name="email" onChange={this.handleChange}/><br/>
         <Label for="password">Password:</Label><br/>
-        <Input type="password" name="password"/><br/>
+        <Input type="password" name="password" onChange={this.handleChange}/><br/>
         <Label for="Birthday">Birthday:</Label><br/>
-        <Input type="date" name="age"/><br/>
+        <Input type="date" name="age" onChange={this.handleChange}/><br/>
         <Label for="PhoneNumber">Phone Number:</Label><br/>
-        <Input type="tel" name="PhoneNumber"/><br/>
+        <Input type="tel" name="PhoneNumber" onChange={this.handleChange}/><br/>
         <Label for="Descreption">Profile:</Label><br/>
-        <Input type="text" name="Descreption" placeholder="Describe yourself.."/><br/>
+        <Input type="text" name="Descreption" placeholder="Describe yourself.." onChange={this.handleChange}/><br/>
         <Label for="Skills">Skills:</Label><br/>
-        <Input type="text" name="Skills" placeholder="Describe your skills.."/><br/>
+        <Input type="text" name="Skills" placeholder="Describe your skills.." onChange={this.handleChange}/><br/>
         <Button >Cancel</Button>
         <Button >Save</Button>
     </div>
