@@ -43,9 +43,22 @@ const addUsersDescription = function(user) {
     });
 };
 
+//=======================
+// bringing job offers
+
+const jobOffers = function() {
+    return new Promise((resolve, reject) => {
+        connection.query('SELECT * FROM joboffers', (err ,data) => {
+            if(err) { reject(err)}
+            resolve(data)
+        });
+    });
+};
+
 module.exports = {
     Users,addUsers,
-    UsersDescription,addUsersDescription
+    UsersDescription,addUsersDescription,
+    jobOffers
   };
   
   // const updateUsersDescription = function(user) {
