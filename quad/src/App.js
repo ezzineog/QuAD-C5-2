@@ -4,7 +4,7 @@ import FreelancerSection from './components/freelancer/FreelancerSection'
 
 import { Navbar } from "./components/Navbar.js";
 import Signup from "./components/Signup.js";
-import CompanyNavbar from "./components/company/CompanyNavbar"
+import CompanySection from "./components/company/CompanySection"; 
 // import { UserNavBar } from "./UserNavBar.js";
 // import { }
 // import bootstrap.
@@ -42,7 +42,7 @@ constructor (props){
      compo = <FreelancerSection lougoutFunc = {this.lougoutFunc} />
    }
 
-  return <CompanyNavbar/>;
+  return <CompanySection />;
 };}
 
 export default App;
