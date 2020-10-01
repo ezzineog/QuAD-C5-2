@@ -26,8 +26,25 @@ const editUser = function(user) {
     });
   }
 
-
-
+// get the signed in freelancer
+  const getUser = function(email) {
+      return new Promise((resolve, reject) => {
+          connection.query(`SELECT * FROM users where Email = '${email}' `, (err ,data) => {
+              if(err) { reject(err)}
+              resolve(data)
+          });
+      });
+  };
+// add application
+  const apply = function(Ids) {
+    console.log('Ids =======>',Ids)
+    return new Promise((resolve, reject) => {
+        connection.query(`INSERT INTO applications SET ?`, Ids, (err ,data) => {
+            if(err) { reject(err)}
+            resolve(data)
+        });
+    });
+  };
 
 //=======================
 // bringing job offers
@@ -42,14 +59,6 @@ const jobOffers = function() {
 
 };
 
-const getUser = function(email) {
-    return new Promise((resolve, reject) => {
-        connection.query(`SELECT * FROM users where Email = '${email}' `, (err ,data) => {
-            if(err) { reject(err)}
-            resolve(data)
-        });
-    });
-};
 const addCompanySignUpData = function(user) {
   console.log('users =======>',user)
   return new Promise((resolve, reject) => {
@@ -59,11 +68,13 @@ const addCompanySignUpData = function(user) {
       });
   });
 };
+
 module.exports = {
     getUser,
     addUser,
     editUser,
     jobOffers,
+    apply,
     addCompanySignUpData
 
   };

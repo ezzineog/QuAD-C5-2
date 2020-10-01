@@ -27,6 +27,18 @@ app.post('/signup', async (req, res)  => {
         res.send(e);
     }
 });
+app.post('/apply', async (req, res)  => {
+    console.log('req.body');
+    console.log('req.body ====>',req.body);
+    try {
+        const data = await db.apply(req.body);
+        console.log('data is',data)
+        res.status(200).send(data);
+    }
+    catch (e) {
+        res.send(e);
+    }
+});
 // Getting All the Signed In Users
 app.get('/signup', async (req, res) => {
     try{
