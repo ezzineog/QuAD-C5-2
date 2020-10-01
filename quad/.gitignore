@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-config.js
+/DATABASE/config.js
 
 # testing
 /coverage
