@@ -3,16 +3,7 @@ const mysqlConfig = require('./config.js');
 const connection = mysql.createConnection(mysqlConfig);
 // Sign Up 
 // ==========================================================================
-const Users = function() {
-    return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM users', (err ,data) => {
-            if(err) { reject(err)}
-            resolve(data)
-        });
-    });
-};
-
-const addUsers = function(user) {
+const addUser = function(user) {
     console.log('users =======>',user)
     return new Promise((resolve, reject) => {
         connection.query(`INSERT INTO users SET ?`, user, (err ,data) => {
@@ -24,24 +15,16 @@ const addUsers = function(user) {
 // ==========================================================================
 // Setting up profiles
 
-const UsersDescription = function() {
+const editUser = function(user) {
     return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM UserDescription', (err ,data) => {
+        connection.query('INSERT INTO users SET ?', user, (err ,data) => {
             if(err) { reject(err)}
             resolve(data)
         });
     });
 };
 
-const addUsersDescription = function(user) {
-    console.log('users =======>',user)
-    return new Promise((resolve, reject) => {
-        connection.query(`INSERT INTO UserDescription (Age, Avatar, Description, PhoneNumber, Skills) VALUES (${user.Age},'${user.Avatar}','${user.Description}','${user.PhoneNumber}','${user.Skills}')`, (err ,data) => {
-            if(err) { reject(err)}
-            resolve(data)
-        });
-    });
-};
+
 
 //=======================
 // bringing job offers
@@ -55,9 +38,19 @@ const jobOffers = function() {
     });
 };
 
+const getUser = function(email) {
+    return new Promise((resolve, reject) => {
+        connection.query(`SELECT * FROM users where Email = '${email}' `, (err ,data) => {
+            if(err) { reject(err)}
+            resolve(data)
+        });
+    });
+};
+
 module.exports = {
-    Users,addUsers,
-    UsersDescription,addUsersDescription,
+    getUser,
+    addUser,
+    editUser,
     jobOffers
   };
   
