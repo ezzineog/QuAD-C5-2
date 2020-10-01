@@ -14,46 +14,38 @@ import { Form, FormGroup, Input, Button } from "reactstrap";
 // create a new component for log in.
 export class Navbar extends React.Component {
   state = {
-    userName: "",
+    email: "",
     password: "",
   };
-
-  // submit button.
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const user = {
-      userName: this.state.userName,
-      password: this.state.password,
-    };
-    
-    // check
-    console.log(user); 
-
-    if (!this.state.userName || !this.state.password){
-      alert("please enter user name and password")
-    }else{
-    axios
-      .post("http://localhost:3008/users/info", user)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    this.setState({
-      userName: "",
-      password: "",
-    });
-    }
-  };
-
   // watching the change inside value.
   handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value,
-    });
-    console.log(e);
+    this.setState({[e.target.id]: e.target.value});
+    // console.log(e);
   };
+  homeFreelancer = () => {
+    this.props.homeFreelancer();
+  }
+  // submit button.
+  handleSubmit = () => {
+    const user = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    // if (!this.state.email || !this.state.password){
+    //   alert("please enter user name and password")
+    // }else{
+    axios.post("http://127.0.0.1:3008/login", user)
+      .then(response => console.log('[client side login]',response.data))
+      .then( () =>this.homeFreelancer() )
+      .catch(err =>  console.log('[client side login error]',err) );
+    // this.setState({
+    //   email: "",
+    //   password: "",
+    // });
+    // }
+  };
+
+
 
   render() {
     return (
@@ -70,7 +62,7 @@ export class Navbar extends React.Component {
                     className="input"
                     required
                     onChange={this.handleChange}
-                    id="userName"
+                    id="email"
                     type="email"
                     placeholder="Enter email"
                   />
@@ -89,7 +81,6 @@ export class Navbar extends React.Component {
                   <Button
                     onClick={this.handleSubmit}
                     id="submitLog"
-                    type="submit"
                   >
                     Log in
                   </Button>

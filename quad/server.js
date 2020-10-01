@@ -4,19 +4,24 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3008;
 const db = require('./DATABASE/databaseFuncs.js');
+// cors
+
+const cors = require('cors');
+app.use(cors());
 
 // BODY-PARSER
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // app.use(express.static('public'))
-// 
+//
 // the table of the users  Describtion  
 app.post('/signup', async (req, res)  => {
+    console.log('req.body');
     console.log('req.body ====>',req.body);
     try {
         const data = await db.addUsers(req.body);
-        res.send(data);
+        res.status(200).send(data);
     }
     catch (e) {
         res.send(e);
@@ -32,6 +37,23 @@ app.get('/signup', async (req, res) => {
         console.error(err);
     }
 })
+// checking if login data is valid
+app.post('/login', async (req, res) => {
+    try {
+        const data = await db.Users();
+        console.log('[Log in all data]',data);
+        for(var i = 0; i < data.length; i++) {
+            var elm = data[i];
+             console.log('elm.email',elm.Email)
+             console.log('elm.password',elm.Password)
+            // console.log('req.body.name / password',req.body.Email,req.body.Password);
+            // console.log('elm ====> ',elm.Email === req.body.Email && elm.Password === req.body.Password);
+            if (elm.Email === req.body.email && elm.Password === req.body.password) {
+                res.status(200).send('successfully Logged In !')
+            }
+        }
+    }catch (err) {console.log(err)}
+});
 
 // =================================================================
 // setting up profile
@@ -59,18 +81,17 @@ app.get('/profile', async (req, res) => {
     }
 })
 
-// checking if login data is valid
-// app.post('/login', async (req, res) => {
-//     try {
-//         const data = await db.Users();
-//         console.log('[Log in cheking data]',data);
-//         for(var elm of data) {
-//                 console.log('req.body.name / password',req.body.name,req.body.password);
-//                 elm.name === req.body.name && elm.password === req.body.password ? res.status(200).send('successfully Logged In !')
-//                 : res.status(400).send('[Logging in data does not match  match ] err',err);
-//         }
-//     }catch (e) {console.log(e)}
-// });
+  // getting job offers
+app.get('/home', async (req, res) => {
+    try{
+        const jobsData = await db.jobOffers();
+        res.status(200).send(jobsData);
+    }
+    catch (err) {
+        console.error(err);
+    }
+})
+
 
 // Updating Users data .
 // app.put('/Update', async(req, res) => {
