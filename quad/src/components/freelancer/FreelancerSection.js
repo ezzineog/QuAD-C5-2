@@ -8,31 +8,39 @@ import Aplications from './Aplications';
 
 
 export default class FreelancerSection extends Component {
+
     
 
-    // componentDidMount(){
-    //     axios.get('/freelancer')
-    //     .then(res => this.setState({
-    //     //    bring all the jobs and the jobs for which the user applied
-    //     }))
-    // }
+    // componentDidMount(props){
+    //     console.log('FreelancerSection mounted')
+    //   }
+      
+    //   shouldComponentUpdate(nextProps, nextState) {
+    //     console.log('Sould FreelancerSection update?')
+    //     return true;
+    //   }
+      
+      
+      
+    //   componentDidUpdate(previousProps, previousState) {
+    //     console.log('FreelancerSection did update')
+      
+    //   }
 
-    render() {
+    render(props) {
+        // this.props.router.push('/Profile')
+
+
         return (
             <Router>
                 <UserNavBar/>  
-                <Route exact path="/" component={Home} />
-                <Route path="/Profile" component={FreelancerProfile} />
+                <Route exact path="/" component={Home}/>
+                <Route path="/Profile" render={() => <FreelancerProfile freelancer={this.props.freelancer} />}/>
                 <Route path="/Aplications" component={Aplications} />
                 <Route path="/logout" component={Aplications} />
-             
-                {/* <Home 
-                jobs={this.props.data.jobs}
-                applications={this.props.data.applications}
-                /> */}
-                
+
             </Router>
-        )
+        );
     }
 }
 

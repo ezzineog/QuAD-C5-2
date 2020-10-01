@@ -20,20 +20,6 @@ export default class UserNavBar extends Component {
               Quad
                     </Link>
           </li>
-
-          {/* <div className="serachBar">
-                    <li className="Ubtn">
-                      <Input
-                        id="search"
-                        type="text"
-                        placeholder="Search for a job"
-                      ></Input>
-                    </li>
-                    <li className="Ubtn">
-                      <Button> Search </Button>
-                    </li>
-                  </div> */}
-
           <div className="buttons">
             <li className="Ubtn">
               <Link to="/" className="Ulink">

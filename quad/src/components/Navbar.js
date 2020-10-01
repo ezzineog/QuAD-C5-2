@@ -31,19 +31,11 @@ export class Navbar extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
-    // if (!this.state.email || !this.state.password){
-    //   alert("please enter user name and password")
-    // }else{
-    axios
-      .post("http://127.0.0.1:3008/login", user)
-      .then(response => console.log('[client side login]',response.data))
-      .then( () =>this.homeFreelancer() )
+    
+    axios.post("http://127.0.0.1:3008/login", user)
+      .then(response => this.props.homeFreelancer(response.data))
       .catch(err =>  console.log('[client side login error]',err) );
-    // this.setState({
-    //   email: "",
-    //   password: "",
-    // });
-    // }
+    
   };
 
 
