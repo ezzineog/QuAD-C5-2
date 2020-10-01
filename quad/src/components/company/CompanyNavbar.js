@@ -9,7 +9,6 @@ class CompanyNavbar extends Component {
         return (
           <nav>
           <Router>
-
             <ul className="userNavbar">
               <li className="Ubtn">
                 <Link to="/" className="Ulink">
