@@ -1,13 +1,10 @@
 import React from "react";
 import "./App.css";
+import FreelancerSection from './components/freelancer/FreelancerSection'
 
-
-// import browser router.
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import other components.
-// eslint-disable-next-line
 import { Navbar } from "./components/Navbar.js";
 import Signup from "./components/Signup.js";
+
 import FreelancerSection from "./components/freelancer/FreelancerSection.js"
 // import { UserNavBar } from "./UserNavBar.js";
 // import { }
@@ -49,6 +46,7 @@ constructor (props){
     <div>
   {compo}
    </div>
+
   );
 };}
 
