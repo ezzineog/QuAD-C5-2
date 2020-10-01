@@ -33,6 +33,7 @@
 //         freeLancerLastName: res.LastName,
 //         freeLancerEmail: res.Email,
 //       })
+
 //     )
 //     .catch((err) => console.log("[client side err]", err));
 //   }

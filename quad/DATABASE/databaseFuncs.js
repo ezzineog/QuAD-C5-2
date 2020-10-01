@@ -60,7 +60,6 @@ const addCompanySignUpData = function(user) {
   });
 };
 
-
 // -*- bringing company informations for the company profile -*-\\
 const companyInfo = () => {
   return new Promise((resolve, reject) => {
@@ -81,4 +80,5 @@ module.exports = {
   addCompanySignUpData,
   companyInfo
 };
+
   
