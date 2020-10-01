@@ -78,7 +78,20 @@ const updateUsersAllData = function (user) {
   });
 };
 
+//=======================
+// bringing job offers
+
+const jobOffers = function() {
+    return new Promise((resolve, reject) => {
+        connection.query('SELECT * FROM joboffers', (err ,data) => {
+            if(err) { reject(err)}
+            resolve(data)
+        });
+    });
+};
+
 module.exports = {
+<<<<<<< HEAD
   Users,
   addUsers,
   UsersDescription,
@@ -92,3 +105,17 @@ module.exports = {
 //         Description = ${user.Description},
 //         PhoneNumber = ${user.PhoneNumber}, Skills = ${user.Skills}
 //         WHERE userID = ${user.id}`)
+=======
+    Users,addUsers,
+    UsersDescription,addUsersDescription,
+    jobOffers
+  };
+  
+  // const updateUsersDescription = function(user) {
+//     return new Promise((resolve, reject) => {
+//         connection.query('UPDATE describe ----------------')
+//         if(err) { reject(err)}
+//         resolve(user)
+//     })
+// },updateUse
+>>>>>>> f086cc11e60eccae9af79c0a1c4a2b6ea9253361

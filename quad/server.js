@@ -91,6 +91,17 @@ app.get('/profile', async (req, res) => {
     }
 })
 
+  // getting job offers
+app.get('/home', async (req, res) => {
+    try{
+        const jobsData = await db.jobOffers();
+        res.status(200).send(jobsData);
+    }
+    catch (err) {
+        console.error(err);
+    }
+})
+
 
 // Updating Users data .
 // app.put('/Update', async(req, res) => {
