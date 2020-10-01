@@ -16,6 +16,7 @@ class PublicProfile extends React.Component {
       console.log(this.props.freelance)
      return (
        <div>Hello numbers
+       <img src={this.props.freelance.avatar}  width="50" height="100"></img>
        <h1>First Name: {this.props.freelance.FirstName}</h1>
        <h1>Last Name: {this.props.freelance.LastName}</h1>
        <h1>Age: {this.props.freelance.Age}</h1>
