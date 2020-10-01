@@ -21,7 +21,7 @@ class FreelancerSign extends React.Component {
     // console.log("=====>",event.target.value)
   }
 
-
+ 
 
   getSign() {
     
@@ -40,9 +40,10 @@ class FreelancerSign extends React.Component {
     }else{
   axios.post('http://127.0.0.1:3008/signup', body)
       .then(response => console.log('[client side SignUp]',response.data))
+      
       .catch(error  => console.log(error));
+  }
 
-    }
 
   }
 
