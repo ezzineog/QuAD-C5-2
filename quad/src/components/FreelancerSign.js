@@ -6,10 +6,10 @@ class FreelancerSign extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      FirstName: "",
-      LastName: "",
-      Email: "",
-      Password: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
       Cpassword: ""
     };
     this.handleChange = this.handleChange.bind(this);
@@ -29,20 +29,21 @@ class FreelancerSign extends React.Component {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
-      password: this.state.password,
+      password: this.state.password
     };
-    if (body.password !== this.state.Cpassword) {
+    if (this.state.password !== this.state.Cpassword) {
       alert("check your password again !");
-    }else{
-    axios
-      .post("", body)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
+
     }
+    else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)){
+      alert("wrong email !");
+    }else{
+  axios.post('http://127.0.0.1:3008/signup', body)
+      .then(response => console.log('[client side SignUp]',response.data))
+      .catch(error  => console.log(error));
+
+    }
+
   }
 
   render() {
@@ -84,7 +85,7 @@ class FreelancerSign extends React.Component {
             onChange={this.handleChange}
           />
           <br />
-          <Button color="primary" type="submit" onClick={this.getSign}>
+          <Button color="primary"  onClick={this.getSign}>
             Submit
           </Button>
       

@@ -32,6 +32,8 @@ export default class Feed extends Component {
               </Button>
             </div>
           </Card>
+          <br />
+          <br />
           <Modal isOpen={this.state.modal}>
             <ModalHeader>Job description</ModalHeader>
             <ModalBody>
