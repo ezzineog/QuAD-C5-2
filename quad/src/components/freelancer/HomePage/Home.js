@@ -43,7 +43,7 @@ export default class Home extends Component {
         return (
             <div>
                 <Filter/>
-                <Feeds jobs={this.state.jobs}/>
+                <Feeds user={this.props.user} jobs={this.state.jobs}/>
             </div>
         )
     }
