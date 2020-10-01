@@ -119,6 +119,13 @@ app.post('/signup/company', async (req, res) => {
     catch (e) {res.send(e)}
 });
 
+app.get('/signup/company', async (req, res) => {
+    try {const codata = await db.GetCompanySignUpData();
+    res.status(200).send(codata)
+ }
+ catch (err) {res.send(err)}
+})
+
 app.post('/login/company', async (req, res) => {
     try {
         const data = await db.addCompanySignUpData();
@@ -129,7 +136,7 @@ app.post('/login/company', async (req, res) => {
                 res.status(200).send('successfully Logged In !')}};
     }catch (err) {console.log(err)}
     
-// 
+
 });
 app.listen(port,
      () => console.log(`server is listening on port ${port}`));

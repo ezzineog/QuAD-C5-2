@@ -41,7 +41,7 @@ const updateUsersAllData = function (user) {
    // bringing job offers
 
 const GetjobOffers = function () {
-  return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
     connection.query("SELECT * FROM joboffers", (err, data) => {
       if (err) {
         reject(err);
@@ -50,6 +50,7 @@ const GetjobOffers = function () {
     });
   });
 };
+
 // inserting job offers
 
 const AddJobOffers = function (job) {
@@ -65,13 +66,26 @@ const AddJobOffers = function (job) {
 };
 //=================Company=====================
 const addCompanySignUpData = function (company) {
-  console.log("companys =======>", company);
+  console.log("companys ADD =======>", company);
   return new Promise((resolve, reject) => {
     connection.query(`INSERT INTO company SET ?`, company, (err, data) => {
       if (err) {
         reject(err);
       }
       resolve(data);
+    });
+  });
+};
+const GetCompanySignUpData = function (company) {
+
+  console.log("companys GET =======>", company);
+
+  return new Promise((resolve, reject) => {
+    connection.query(`SELECT * FROM company`, (err, CompanyData) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(CompanyData);
     });
   });
 };
@@ -82,11 +96,13 @@ module.exports = {
   GetjobOffers,
   addCompanySignUpData,
   AddJobOffers,
-  updateUsersAllData
+  updateUsersAllData,
+  GetCompanySignUpData
 };
 // ,
 // UsersDescription,
 // addUsersDescription,
+
 //
 // const updateUsersDescription = function(user) {
 //     return new Promise((resolve, reject) => {

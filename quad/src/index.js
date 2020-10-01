@@ -2,14 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import AddPost from './components/company/Home/AddPost.js'
+import Post from './components/company/Home/Posts/Post.js'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <AddPost />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<Post/>, document.getElementById('root'));
 
 // ReactDOM.render(
 //   <React.StrictMode>
