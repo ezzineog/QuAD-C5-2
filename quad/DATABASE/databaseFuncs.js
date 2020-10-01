@@ -1,18 +1,10 @@
-const mysql = require('mysql');
-const mysqlConfig = require('./config.js');
+const mysql = require("mysql");
+const mysqlConfig = require("./config.js");
 const connection = mysql.createConnection(mysqlConfig);
-// Sign Up 
+// Sign Up
 // ==========================================================================
-const Users = function() {
-    return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM users', (err ,data) => {
-            if(err) { reject(err)}
-            resolve(data)
-        });
-    });
-};
+const addUser = function(user) {
 
-const addUsers = function(user) {
     console.log('users =======>',user)
     return new Promise((resolve, reject) => {
         connection.query(`INSERT INTO users SET ?`, user, (err ,data) => {
@@ -24,24 +16,18 @@ const addUsers = function(user) {
 // ==========================================================================
 // Setting up profiles
 
-const UsersDescription = function() {
+const editUser = function(user) {
     return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM UserDescription', (err ,data) => {
+        connection.query('INSERT INTO users SET ?', user, (err ,data) => {
             if(err) { reject(err)}
             resolve(data)
         });
-    });
-};
 
-const addUsersDescription = function(user) {
-    console.log('users =======>',user)
-    return new Promise((resolve, reject) => {
-        connection.query(`INSERT INTO UserDescription (Age, Avatar, Description, PhoneNumber, Skills) VALUES (${user.Age},'${user.Avatar}','${user.Description}','${user.PhoneNumber}','${user.Skills}')`, (err ,data) => {
-            if(err) { reject(err)}
-            resolve(data)
-        });
     });
-};
+  }
+
+
+
 
 //=======================
 // bringing job offers
@@ -53,18 +39,46 @@ const jobOffers = function() {
             resolve(data)
         });
     });
+
+};
+
+const getUser = function(email) {
+    return new Promise((resolve, reject) => {
+        connection.query(`SELECT * FROM users where Email = '${email}' `, (err ,data) => {
+            if(err) { reject(err)}
+            resolve(data)
+        });
+    });
+};
+const addCompanySignUpData = function(user) {
+  console.log('users =======>',user)
+  return new Promise((resolve, reject) => {
+      connection.query(`INSERT INTO company SET ?`, user, (err ,data) => {
+          if(err) { reject(err)}
+          resolve(data)
+      });
+  });
+};
+
+
+// -*- bringing company informations for the company profile -*-\\
+const companyInfo = () => {
+  return new Promise((resolve, reject) => {
+    connection.query("SELECT * FROM company", (err, data) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(data);
+    });
+  });
 };
 
 module.exports = {
-    Users,addUsers,
-    UsersDescription,addUsersDescription,
-    jobOffers
-  };
+  getUser,
+  addUser,
+  editUser,
+  jobOffers,
+  addCompanySignUpData,
+  companyInfo
+};
   
-  // const updateUsersDescription = function(user) {
-//     return new Promise((resolve, reject) => {
-//         connection.query('UPDATE describe ----------------')
-//         if(err) { reject(err)}
-//         resolve(user)
-//     })
-// },updateUse
