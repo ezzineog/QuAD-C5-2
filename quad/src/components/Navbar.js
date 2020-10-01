@@ -22,7 +22,9 @@ export class Navbar extends React.Component {
     this.setState({[e.target.id]: e.target.value});
     // console.log(e);
   };
-
+  homeFreelancer = () => {
+    this.props.homeFreelancer();
+  }
   // submit button.
   handleSubmit = () => {
     const user = {
@@ -35,6 +37,7 @@ export class Navbar extends React.Component {
     axios
       .post("http://127.0.0.1:3008/login", user)
       .then(response => console.log('[client side login]',response.data))
+      .then( () =>this.homeFreelancer() )
       .catch(err =>  console.log('[client side login error]',err) );
     // this.setState({
     //   email: "",
