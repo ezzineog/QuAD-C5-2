@@ -1,35 +1,25 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import UserNavBar  from '../freelancer/UserNavBar';
 import Home from './HomePage/Home';
+import FreelancerProfile from './Profile/FreelancerProfile'
+import Aplications from './Aplications';
+
 
 export default class FreelancerSection extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-
-            user : {}, //we get it from the login action
-            userDescription : {}, //we get it from the login action
-            jobs : [{name: 'Ahmed Corp'}, {name:'numbers corp'}, {name : 'jdey corp'}], // get request to the jobOffers table
-            applications : [] // get request to the join table
-
-        }
-    }
-
-    // componentDidMount(){
-    //     axios.get('/freelancer')
-    //     .then(res => this.setState({
-    //     //    bring all the jobs and the jobs for which the user applied
-    //     }))
-    // }
 
     render() {
         return (
-            <div>
-                <Home 
-                jobs={this.state.jobs}
-                applications={this.state.applications}
-                />
-                
-            </div>
+            <Router>
+                <UserNavBar/>  
+                <Route exact path="/" component={Home} />
+                <Route path="/Profile" component={FreelancerProfile} />
+                <Route path="/Aplications" component={Aplications} />
+                <Route path="/logout" component={Aplications} />            
+            </Router>
         )
     }
 }
+
+

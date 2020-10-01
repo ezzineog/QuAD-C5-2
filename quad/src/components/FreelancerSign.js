@@ -21,15 +21,15 @@ class FreelancerSign extends React.Component {
     // console.log("=====>",event.target.value)
   }
 
-
+ 
 
   getSign() {
     
     let body = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      password: this.state.password
+      FirstName: this.state.firstName,
+      LastName: this.state.lastName,
+      Email: this.state.email,
+      Password: this.state.password
     };
     if (this.state.password !== this.state.Cpassword) {
       alert("check your password again !");
@@ -40,9 +40,10 @@ class FreelancerSign extends React.Component {
     }else{
   axios.post('http://127.0.0.1:3008/signup', body)
       .then(response => console.log('[client side SignUp]',response.data))
+      
       .catch(error  => console.log(error));
+  }
 
-    }
 
   }
 

@@ -18,8 +18,8 @@ export default class Feed extends Component {
         <Col sm="6">
           <Card className="feedCard" body>
             <div className="feedCardS">
-              <CardTitle>Company name : {this.props.feed.name}</CardTitle>
-              <CardTitle>Job Title : Some stuffs to do</CardTitle>
+              <CardTitle>Company name : {this.props.feed.companyId}</CardTitle>
+              <CardTitle>Job Title : {this.props.feed.JobTitle} </CardTitle>
               <CardImg
                 width="100%"
                 src="https://reactstrap.github.io/assets/318x180.svg"
@@ -37,13 +37,7 @@ export default class Feed extends Component {
           <Modal isOpen={this.state.modal}>
             <ModalHeader>Job description</ModalHeader>
             <ModalBody>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              {this.props.feed.Description}
             </ModalBody>
             <ModalFooter>
               <Button color="success" onClick={this.toggle}>

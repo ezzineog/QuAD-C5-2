@@ -56,6 +56,16 @@ app.post('/login', async (req, res) => {
 });
 
 // =================================================================
+app.put('/update', async (req, res) => {
+    console.log('req.body ====>',req.body);
+    try {
+        const elm = await db.updateUsersAllData(req.body);
+        res.status(200).send(elm)
+    }catch(e) {
+        res.send(e)
+    }
+});
+// =================================================================
 // setting up profile
 
   // add  Description
@@ -75,6 +85,17 @@ app.get('/profile', async (req, res) => {
     try{
         const profileAllData = await db.UsersDescription();
         res.status(200).send(profileAllData);
+    }
+    catch (err) {
+        console.error(err);
+    }
+})
+
+  // getting job offers
+app.get('/home', async (req, res) => {
+    try{
+        const jobsData = await db.jobOffers();
+        res.status(200).send(jobsData);
     }
     catch (err) {
         console.error(err);
