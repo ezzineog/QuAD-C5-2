@@ -14,19 +14,15 @@ const Users = function () {
   });
 };
 
-const addUsers = function (user) {
-  console.log("users =======>", user);
-  return new Promise((resolve, reject) => {
-    connection.query(
-      `INSERT INTO users (FirstName, LastName, Email, Password) VALUES ('${user.FirstName}','${user.LastName}','${user.Email}','${user.Password}')`,
-      (err, data) => {
-        if (err) {
-          reject(err);
-        }
-        resolve(data);
-      }
-    );
-  });
+
+const addUsers = function(user) {
+    console.log('users =======>',user)
+    return new Promise((resolve, reject) => {
+        connection.query(`INSERT INTO users SET ?`, user, (err ,data) => {
+            if(err) { reject(err)}
+            resolve(data)
+        });
+    });
 };
 // ==========================================================================
 // Setting up profiles
@@ -91,21 +87,7 @@ const jobOffers = function() {
 };
 
 module.exports = {
-<<<<<<< HEAD
-  Users,
-  addUsers,
-  UsersDescription,
-  addUsersDescription,
-  updateUsersAllData
-};
-// (`UPDATE (JOINEDTABLES) SET
-//         FirstName = ${user.FirstName}, LastName = ${user.LastName},
-//         Description = ${user.Email}, Password = ${user.Password},
-//         Age = ${user.Age}, Avatar = ${user.Avatar},
-//         Description = ${user.Description},
-//         PhoneNumber = ${user.PhoneNumber}, Skills = ${user.Skills}
-//         WHERE userID = ${user.id}`)
-=======
+
     Users,addUsers,
     UsersDescription,addUsersDescription,
     jobOffers
@@ -118,4 +100,3 @@ module.exports = {
 //         resolve(user)
 //     })
 // },updateUse
->>>>>>> f086cc11e60eccae9af79c0a1c4a2b6ea9253361
