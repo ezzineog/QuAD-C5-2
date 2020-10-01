@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-
 import { Link } from "react-router-dom";
 
 
@@ -8,7 +6,7 @@ class CompanyNavbar extends Component {
     render(props) {
         return (
           <nav>
-          <Router>
+            {/* <Router> */}
             <ul className="userNavbar">
               <li className="Ubtn">
                 <Link to="/" className="Ulink">
@@ -27,7 +25,7 @@ class CompanyNavbar extends Component {
                   </Link>
                 </li>
                 <li className="Ubtn">
-                  <Link to="/" className="Ulink">
+                  <Link to="/posts" className="Ulink">
                     Posts
                   </Link>
                 </li>
@@ -38,8 +36,7 @@ class CompanyNavbar extends Component {
                 </li>
               </div>
             </ul>
-          </Router>
-
+            {/* </Router> */}
           </nav>
         );
     }
