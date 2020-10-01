@@ -85,12 +85,20 @@ const jobOffers = function() {
         });
     });
 };
-
+const addCompanySignUpData = function(user) {
+  console.log('users =======>',user)
+  return new Promise((resolve, reject) => {
+      connection.query(`INSERT INTO company SET ?`, user, (err ,data) => {
+          if(err) { reject(err)}
+          resolve(data)
+      });
+  });
+};
 module.exports = {
 
     Users,addUsers,
     UsersDescription,addUsersDescription,
-    jobOffers
+    jobOffers,addCompanySignUpData
   };
   
   // const updateUsersDescription = function(user) {
