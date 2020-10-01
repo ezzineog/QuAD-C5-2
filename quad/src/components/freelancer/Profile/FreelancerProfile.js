@@ -8,6 +8,7 @@ class FreelancerProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
+     
       profileType: 1 };
     this.handelEditProfil = this.handelEditProfil.bind(this);
     this.handelPublicProfile = this.handelPublicProfile.bind(this);
@@ -30,10 +31,10 @@ class FreelancerProfile extends React.Component {
     let compo;
     let edit;
     if (this.state.profileType === 1) {
-      compo = <PublicProfile />;
+      compo = <PublicProfile freelance={this.props.freelancer} />;
     }
     if (this.state.profileType === 2){
-      compo = <EditProfile handelPofile={this.handelPublicProfile} />;
+      compo = <EditProfile/>;
     }
     if (this.state.profileType === 1) {
       edit = <Edit handelEdit={this.handelEditProfil} />;
