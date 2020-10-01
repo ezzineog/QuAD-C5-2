@@ -5,22 +5,23 @@ CREATE DATABASE quad;
 USE quad;
 
 CREATE TABLE users (
-    id int NOT NULL AUTO_INCREMENT,
+    userID int NOT NULL AUTO_INCREMENT,
     FirstName varchar(20),
     LastName varchar(20),
     Email varchar(30),
     Password varchar(50),
-    PRIMARY KEY (ID)
+    PRIMARY KEY (userID)
 );
 
 CREATE TABLE UserDescription (
-    id int NOT NULL AUTO_INCREMENT,
+    userID int NOT NULL AUTO_INCREMENT,
     Age int NOT NULL,
     Avatar varchar(50),
     Description varchar(30),
     PhoneNumber int(25),
     Skills varchar(60),
-    PRIMARY KEY (ID)
+    -- PRIMARY KEY (ID),
+    FOREIGN KEY (userID) REFERENCES users(usersID)
 );
 
 CREATE TABLE jobOffers (

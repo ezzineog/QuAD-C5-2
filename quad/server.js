@@ -56,6 +56,16 @@ app.post('/login', async (req, res) => {
 });
 
 // =================================================================
+app.put('/update', async (req, res) => {
+    console.log('req.body ====>',req.body);
+    try {
+        const elm = await db.updateUsersAllData(req.body);
+        res.status(200).send(elm)
+    }catch(e) {
+        res.send(e)
+    }
+});
+// =================================================================
 // setting up profile
 
   // add  Description
