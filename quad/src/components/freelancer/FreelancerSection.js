@@ -18,7 +18,7 @@ export default class FreelancerSection extends Component {
                 <Route path="/Aplications" component={Aplications} />
                 <Route path="/logout" component={Aplications} />            
             </Router>
-        )
+        );
     }
 }
 

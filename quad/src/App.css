@@ -134,3 +134,15 @@
 .checkboxDiv {
   width: 25%;
 }
+
+.comapny-avatar{
+   border-radius: 50%;
+}
+
+.company-profile{
+  width:30%;
+}
+.starts{
+  position: relative;
+  left:35%;
+}
