@@ -5,7 +5,6 @@ import FreelancerSection from './components/freelancer/FreelancerSection'
 import { Navbar } from "./components/Navbar.js";
 import Signup from "./components/Signup.js";
 
-import FreelancerSection from "./components/freelancer/FreelancerSection.js"
 // import { UserNavBar } from "./UserNavBar.js";
 // import { }
 // import bootstrap.
