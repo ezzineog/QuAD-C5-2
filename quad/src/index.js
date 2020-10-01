@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import Post from './components/company/Home/Posts/Post.js'
+import AddPost from './components/company/Home/AddPost.js'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Post />-
+    <AddPost />
   </React.StrictMode>,
   document.getElementById('root')
 );
