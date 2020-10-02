@@ -58,7 +58,7 @@ app.get('/applications/:id', async (req, res) => {
 // Getting All the Signed In Users // AHMED
 app.get('/signup', async (req, res) => {
     try{
-        const allData = await db.getUsers();
+        const allData = await db.getUser();
         res.status(200).send(allData);
     }
     catch (err) {
@@ -98,7 +98,7 @@ app.get('/signup', async (req, res) => {
 
 
   // add  Description
-  app.post('/profile', async (req, res)  => {
+  app.post('/edit', async (req, res)  => {
     console.log('req.body ====>',req.body);
     try {
         const profileData = await db.editUser(req.body);
