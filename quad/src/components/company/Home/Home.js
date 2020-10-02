@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import CompanyNavbar from '../CompanyNavbar.js'
-// import AddPost from './AddPost.js';
+
+import AddPost from './AddPost';
+import Posts from './Posts/Posts'
+
 class Home extends Component {
     render() {
         return (
             <div>
-            <div className="container">
-               {/* <CompanyNavbar/> */}
-            </div>
-            <div className="bodyCompany">
-                {/* ADD_POSTS */}
-                {/* POSTS */}
-                
-            </div>
-                
+            <AddPost/>
+            <Posts/>
             </div>
         );
     }

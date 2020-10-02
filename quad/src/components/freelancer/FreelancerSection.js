@@ -9,14 +9,36 @@ import Aplications from './Aplications';
 
 export default class FreelancerSection extends Component {
 
-    render() {
+    
+
+    // componentDidMount(props){
+    //     console.log('FreelancerSection mounted')
+    //   }
+      
+    //   shouldComponentUpdate(nextProps, nextState) {
+    //     console.log('Sould FreelancerSection update?')
+    //     return true;
+    //   }
+      
+      
+      
+    //   componentDidUpdate(previousProps, previousState) {
+    //     console.log('FreelancerSection did update')
+      
+    //   }
+
+    render(props) {
+        // this.props.router.push('/Profile')
+
+
         return (
             <Router>
                 <UserNavBar/>  
-                <Route exact path="/" component={Home} />
-                <Route path="/Profile" component={FreelancerProfile} />
-                <Route path="/Aplications" component={Aplications} />
-                <Route path="/logout" component={Aplications} />            
+                <Route exact path="/" render={() => <Home user={this.props.freelancer} />}/>
+                <Route path="/Profile" render={() => <FreelancerProfile freelancer={this.props.freelancer} />}/>
+                <Route path="/Aplications" render={() => <Aplications freelancer={this.props.freelancer.id} />} />
+                <Route path="/logout" component={Aplications} />
+
             </Router>
         );
     }

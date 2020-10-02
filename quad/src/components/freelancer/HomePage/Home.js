@@ -17,19 +17,34 @@ export default class Home extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://127.0.0.1:3008/jobs')
+
+        console.log('Home mounted')
+        axios.get('http://127.0.0.1:3008/home')
         .then(res => {
             console.log('job offers ===>', res.data)
             this.setState({jobs : res.data})
         })
         .catch(err => console.log('client side catch error ===>' , err))
     }
+    
+      
+      shouldComponentUpdate(nextProps, nextState) {
+        console.log('Should Home update?')
+        return true;
+      }
+      
+    
+      
+      componentDidUpdate(previousProps, previousState) {
+        console.log('Home did update')
+      
+      }
 
     render(props) {
         return (
             <div>
                 <Filter/>
-                <Feeds jobs={this.state.jobs}/>
+                <Feeds user={this.props.user} jobs={this.state.jobs}/>
             </div>
         )
     }

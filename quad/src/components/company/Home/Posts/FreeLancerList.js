@@ -6,15 +6,14 @@ class FreeLancerList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            FreeLancers: [],
+            FreeLancers: []
         };
     }
 
     componentDidMount() {
-        axios
-            .get("http://127.0.0.1:3008/signup")
-            .then((res) => this.setState({ FreeLancers: res.data }))
-            .catch((err) => console.log("[client side err]", err));
+        axios.get('http://127.0.0.1:3008/application')
+            .then(res => console.log('Freelancers who applied ====>',res.data))
+            .catch(err => console.log("[client side err]", err));
     }
 
     render() {
