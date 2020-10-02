@@ -28,6 +28,8 @@ app.post('/signup', async (req, res)  => {
         res.send(e);
     }
 });
+
+// apply for a job offer
 app.post('/apply', async (req, res)  => {
     console.log('req.body');
     console.log('req.body ====>',req.body);
@@ -40,6 +42,19 @@ app.post('/apply', async (req, res)  => {
         res.send(e);
     }
 });
+//Get the freelancer job applications
+app.get('/applications/:id', async (req, res) => {
+  try {
+    console.log(req.params.id)
+    const applications = await db.getApps(req.params.id); ////////////////////
+    console.log(applications)
+    res.status(200).send(applications)
+  }
+  catch (err) {
+    console.error(err)
+  }
+})
+
 // Getting All the Signed In Users
 app.get('/signup', async (req, res) => {
     try{

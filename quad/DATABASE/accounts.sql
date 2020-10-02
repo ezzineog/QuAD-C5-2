@@ -39,8 +39,8 @@ CREATE TABLE company (
 
 CREATE TABLE applications (
     id int NOT NULL AUTO_INCREMENT,
-    userId int NOT NULL(25),
-    jobOfferId int NOT NULL(25),
+    userId int NOT NULL,
+    jobOfferId int NOT NULL,
     primary key (ID)
 );
 
