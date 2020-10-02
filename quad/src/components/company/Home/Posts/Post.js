@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, Button, CardTitle, CardImg, Row, Col } from "reactstrap";
-import { ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+// import { ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import './post.css'
 import axios from "axios";
 

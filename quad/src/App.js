@@ -42,7 +42,7 @@ constructor (props){
      compo = <FreelancerSection lougoutFunc = {this.lougoutFunc} />
    }
 
-  return <CompanySection />;
+  return <div>{compo}</div>;
 };}
 
 export default App;

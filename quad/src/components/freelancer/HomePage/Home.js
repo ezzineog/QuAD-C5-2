@@ -17,7 +17,7 @@ export default class Home extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://127.0.0.1:3008/home')
+        axios.get('http://127.0.0.1:3008/jobs')
         .then(res => {
             console.log('job offers ===>', res.data)
             this.setState({jobs : res.data})
