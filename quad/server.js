@@ -30,7 +30,7 @@ app.post('/signup', async (req, res)  => {
 // Getting All the Signed In Users
 app.get('/signup', async (req, res) => {
     try{
-        const allData = await db.getUsers();
+        const allData = await db.getUser();
         res.status(200).send(allData);
     }
     catch (err) {
@@ -64,7 +64,7 @@ app.put('/update', async (req, res) => {
 // setting up profile
 
   // add  Description
-  app.post('/profile', async (req, res)  => {
+  app.post('/edit', async (req, res)  => {
     console.log('req.body ====>',req.body);
     try {
         const profileData = await db.editUser(req.body);
