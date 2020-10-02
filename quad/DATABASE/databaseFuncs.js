@@ -45,6 +45,16 @@ const editUser = function(user) {
         });
     });
   };
+// bring applications of the user in the home section
+  const getApps = function(userId) {
+    return new Promise((resolve, reject)=>{
+      console.log(userId)
+      connection.query(`SELECT jobOfferId FROM applications WHERE userId = ${userId}`, (err, data) => {
+        if(err) { reject(err) }
+        resolve(data)
+      })
+    })
+  }
 
 //=======================
 // bringing job offers
@@ -86,6 +96,7 @@ module.exports = {
     editUser,
     jobOffers,
     apply,
+    getApps,
     addCompanySignUpData,
     companyInfo
 };

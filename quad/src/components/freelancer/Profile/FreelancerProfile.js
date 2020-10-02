@@ -2,7 +2,6 @@ import React from "react";
 import PublicProfile from "./PublicProfile.js";
 import EditProfile from "./EditProfile.js";
 import Edit from "./Edit.js";
-import axios from 'axios';
 
 class FreelancerProfile extends React.Component {
   constructor(props) {
