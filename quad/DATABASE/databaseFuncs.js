@@ -76,6 +76,7 @@ const addCompanySignUpData = function (company) {
     });
   });
 };
+
 const GetCompanySignUpData = function (company) {
 
   console.log("companys GET =======>", company);
