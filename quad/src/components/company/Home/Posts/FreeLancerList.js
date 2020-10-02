@@ -29,7 +29,6 @@ class FreeLancerList extends Component {
         </tr>
       );
     });
-
     return (
       <Table dark>
         <thead>
