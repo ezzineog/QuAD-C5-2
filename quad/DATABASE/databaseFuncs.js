@@ -147,9 +147,7 @@ const AddJobOffers = function (job) {
 //   });
 // };
 const GetCompanySignUpData = function (company) {
-
   console.log("companys GET =======>", company);
-
   return new Promise((resolve, reject) => {
     connection.query(`SELECT * FROM company`, (err, CompanyData) => {
       if (err) {
@@ -265,6 +263,6 @@ module.exports = {
   addCompanySignUpData,
   companyInfo,
   getUsersWhoApplied,
-  getAppliedJobsByusers,
+  getAppliedJobsByusers
 };
 /////////////////////////////////////
