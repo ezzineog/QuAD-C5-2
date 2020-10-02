@@ -121,7 +121,7 @@ const AddJobOffers = function (job) {
   console.log("jobs =======>", job);
   return new Promise((resolve, reject) => {
     connection.query(
-      `INSERT INTO joboffers (companyId ,JobTitle ,Description) VALUES ('${job.companyId}','${job.JobTitle}','${job.Description}')`,
+      `INSERT INTO joboffers SET ?`, job,
       (err, jobData) => {
         if (err) {
           reject(err);

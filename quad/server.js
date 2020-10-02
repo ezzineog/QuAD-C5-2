@@ -118,7 +118,8 @@ app.get('/signup', async (req, res) => {
 //     }
 // });
 //=========JOB OFFERS=====================
-   // getting job offers // AHMED
+  //  getting job offers // AHMED
+
 // app.get('/jobs', async (req, res) => {
 //     try{
 //         const jobsData = await db.GetjobOffers();
@@ -131,9 +132,10 @@ app.get('/signup', async (req, res) => {
 
 //    inserting job offers // AHMED
 app.post('/jobs', async(req,res) => {
+  console.log('req',req.body)
     try{
         const addedJobs = await db.AddJobOffers(req.body);
-        console.log(addedJobs)
+
         res.status(200).send(addedJobs)
     }catch(err) {
         console.log('[server side joboffers insert]',err)
