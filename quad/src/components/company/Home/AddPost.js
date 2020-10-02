@@ -18,7 +18,8 @@ class AddPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      jobTitle: ''
+      jobTitle: '',
+      Description : ''
     };
     // this.cancel = this.cancel.bind(this);
     this.getInputVal = this.getInputVal.bind(this);
@@ -54,10 +55,16 @@ class AddPost extends Component {
               <FormGroup>
                 <Label for="exampleEmail">Email</Label>
                 <Input
-                  type="email"
+                  type="jobTitle"
                   onChange={(event) => this.getInputVal(event, "jobTitle")}
-                  id="exampleEmail"
-                  placeholder="with a placeholder"
+                  id="jobTitle"
+                  placeholder="jobTitle..."
+                />
+                <Input
+                  type="Description"
+                  onChange={(event) => this.getInputVal(event, "Description")}
+                  id="Description"
+                  placeholder="Description..."
                 />
               </FormGroup>
               <br />
