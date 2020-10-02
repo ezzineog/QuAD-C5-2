@@ -4,7 +4,15 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h1>hey i supose to be the first page that company saw</h1>
+            <div className="container">
+               {/* NAV BAR  */}
+            </div>
+            <div className="bodyCompany">
+                {/* ADDPOST */}
+                {/* POSTS */}
+                
+            </div>
+                
             </div>
         );
     }

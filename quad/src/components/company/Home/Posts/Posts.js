@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+// import Post from './Post.js'
+// class Posts extends Component {
+//     render() {
+//         return (
+//         //    <Post/>
+//         );
+//     }
+// }
 
-class Posts extends Component {
-    render() {
-        return (
-            <div>
-                <h1>hey i have all the posts</h1>
-            </div>
-        );
-    }
-}
-
-export default Posts;
+// export default Posts;
